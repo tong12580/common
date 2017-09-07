@@ -17,9 +17,8 @@ import java.io.InputStream;
 
 /**
  * @author yuton
- * @ClassName: ImgUtil
- * @Description: 图片缩放截取Util
- * @date May 12, 2011 11:27:55 AM
+ * @description 图片缩放截取Util
+ * @since May 12, 2011 11:27:55 AM
  */
 @Slf4j
 public class ImageUtil {
@@ -205,7 +204,7 @@ public class ImageUtil {
                                                    String deistPath, int newH) {
         try {
             BufferedImage srcImage = ImageIO.read(is);
-           return getCompressAndCutBaseHeight(srcImage,deistPath,newH);
+            return getCompressAndCutBaseHeight(srcImage, deistPath, newH);
         } catch (Exception e) {
             return -1;
         }
@@ -224,7 +223,7 @@ public class ImageUtil {
         try {
             BufferedImage srcImage = ImageIO
                     .read(new ByteArrayInputStream(data));
-            return getCompressAndCutBaseHeight(srcImage,deistPath,newH);
+            return getCompressAndCutBaseHeight(srcImage, deistPath, newH);
         } catch (Exception e) {
             return -1;
         }
@@ -256,7 +255,6 @@ public class ImageUtil {
     }
 
     /**
-     *
      * @param is
      * @param x
      * @param y
@@ -278,7 +276,6 @@ public class ImageUtil {
     }
 
     /**
-     *
      * @param bi
      * @param nw
      * @param nh
