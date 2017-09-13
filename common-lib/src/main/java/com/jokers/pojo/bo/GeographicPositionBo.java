@@ -1,7 +1,5 @@
 package com.jokers.pojo.bo;
 
-import pojo.bo.WifiAccessPointsBo;
-
 import java.util.List;
 
 /**
