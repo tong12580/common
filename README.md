@@ -3,7 +3,7 @@
 
 ## 关键字
 
-`SpringBoot` `SpringCloud` `Json` `image` `Files`
+`Spring` `Json` `image` `Files` `Nio` `time`
 
 ## 版本
 
@@ -19,7 +19,7 @@
 
 #### 现阶段 先提供如下的工具类服务
 
-1. json解析 ,提供Gson和jackson来解析Json数据格式的封装
+1. json解析,提供Gson和jackson来解析Json数据格式的封装
 2. 缓存的配置处理 提供一个基于WeakHashMap和一个基于Guava的本地缓存封装
 3. 提供路径寻找配置
 4. 提供Cookies的解析处理添加配置
