@@ -11,36 +11,34 @@ import java.net.UnknownHostException;
  * @since 2017/2/8 17:35
  */
 public class IpUtil {
+
+    private static final String UNKNOWN = "unknown";
+
     /**
      * 获取http请求的真实IP地址
+     *
      * @param request {@link HttpServletRequest}
      * @return String
      */
-    public static String getIPAddress(HttpServletRequest request){
-        if (request == null) {
+    public static String getIPAddress(HttpServletRequest request) {
+        if (null == request) {
             return null;
         }
         String ip = request.getHeader("X-Forwarded-For");
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+        if (null == ip || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (null == ip || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (null == ip || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (null == ip || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (null == ip || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
-        }
-        if ("127.0.0.1".equals(ip) || "0:0:0:0:0:0:0:1".equals(ip)) {
-            try {
-                ip = InetAddress.getLocalHost().getHostAddress();
-            } catch (UnknownHostException ignored) {
-            }
         }
         return ip;
     }
