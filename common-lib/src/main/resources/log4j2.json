@@ -1,0 +1,100 @@
+{
+  "configuration": {
+    "status": "OFF",
+    "name": "common-lib",
+    "properties": {
+      "property": [
+        {
+          "name": "LOG_HOME",
+          "value": "./logs"
+        },
+        {
+          "name": "FILE_NAME",
+          "value": "log"
+        }
+      ]
+    },
+    "appenders": {
+      "Console": {
+        "name": "Console",
+        "target": "SYSTEM_OUT",
+        "ThresholdFilter": {
+          "level": "info",
+          "onMatch": "ACCEPT",
+          "onMismatch": "DENY"
+        },
+        "PatternLayout": {
+          "pattern": "%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"
+        }
+      },
+      "RollingRandomAccessFile": {
+        "name": "Error",
+        "fileName": "${LOG_HOME}/error.log",
+        "filePattern": "${LOG_HOME}/$${date:yyyy-MM}/%d{MM-dd-yyyy}-%i-error.log.gz",
+        "ThresholdFilter": {
+          "level": "error",
+          "onMatch": "ACCEPT",
+          "onMismatch": "DENY"
+        },
+        "PatternLayout": {
+          "pattern": "%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"
+        },
+        "Policies": {
+          "SizeBasedTriggeringPolicy": {
+            "size": "10 MB"
+          }
+        }
+      },
+      "RollingFile": {
+        "name": "RollingFile",
+        "fileName": "${LOG_HOME}/${FILE_NAME}.log",
+        "filePattern": "${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{MM-dd-yyyy}-%i.log.gz",
+        "ThresholdFilter": {
+          "level": "info",
+          "onMatch": "ACCEPT",
+          "onMismatch": "DENY"
+        },
+        "PatternLayout": {
+          "pattern": "%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"
+        },
+        "Policies": {
+          "SizeBasedTriggeringPolicy": {
+            "size": "10 MB"
+          }
+        }
+      }
+    },
+    "loggers": {
+      "logger": [
+        {
+          "name": "org.apache.tomcat.util.net.NioSelectorPool",
+          "level": "warn",
+          "AppenderRef": {
+            "ref": "RollingFile"
+          }
+        },
+        {
+          "name": "org.springframework.web",
+          "level": "warn",
+          "AppenderRef": {
+            "ref": "RollingFile"
+          }
+        }
+      ],
+      "root": {
+        "level": "info",
+        "AppenderRef": [
+          {
+            "ref": "Console"
+          },
+          {
+            "ref": "Error"
+          },
+          {
+            "ref": "RollingFile"
+          }
+        ]
+      }
+    }
+  }
+}

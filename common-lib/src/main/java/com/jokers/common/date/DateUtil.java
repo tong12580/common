@@ -23,12 +23,16 @@ import java.util.Date;
 @Slf4j
 public class DateUtil {
     private static final String PATTERN_HAVE_TIME = "yyyy-MM-dd HH:mm:ss";
+    private static final String PATTERN_TIME_ZONE = "Z";
     private static final DateTimeFormatter PATTERN_TIME_STAMP = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+    private static final String AGE = "岁";
+    private static final String MONTH = "个月";
 
     /**
+     * 判断是否为正确日期
+     *
      * @param date 格式为：yyyy-MM-dd HH:mm:ss {@link String}
      * @return boolean
-     * @description 判断是否为正确日期
      */
     public static boolean isDate(String date) {
         FastDateFormat format = FastDateFormat.getInstance(PATTERN_HAVE_TIME);
@@ -40,16 +44,19 @@ public class DateUtil {
     }
 
     /**
+     * 对时间格式进行格式化
+     *
      * @param date 时间类型
      * @return yyyy-MM-dd {@link String}
-     * @description 对时间格式进行格式化
+     * @description
      */
     public static String format(Date date) {
         return DateFormatUtils.format(date, DateFormatUtils.ISO_DATE_FORMAT.getPattern());
     }
 
-    /***
+    /**
      * 格式化时间参数
+     *
      * @param date 时间参数
      * @return HH:mm:ss {@link String}
      */
@@ -57,8 +64,9 @@ public class DateUtil {
         return DateFormatUtils.format(date, DateFormatUtils.ISO_TIME_NO_T_FORMAT.getPattern());
     }
 
-    /***
+    /**
      * 格式化时间
+     *
      * @param date    时间参数
      * @param pattern 格式化参数类型
      * @return {@link String}
@@ -69,8 +77,10 @@ public class DateUtil {
 
 
     /**
+     * 当前时间  yyyy-MM-dd HH:mm:ss
+     *
      * @return {@link String}
-     * @description 当前时间  yyyy-MM-dd HH:mm:ss
+     * @description
      */
     public static String getCurDatetime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(PATTERN_HAVE_TIME));
@@ -86,17 +96,20 @@ public class DateUtil {
     }
 
     /**
+     * 获取某时区当前时间的格式化
+     *
      * @param pattern String
      * @param zoneId  ZoneId
      * @return String
-     * @description 获取某时区当前时间的格式化
+     * @description
      */
     public static String getCurDatetime(String pattern, ZoneId zoneId) {
         return LocalDateTime.now(zoneId).format(DateTimeFormatter.ofPattern(pattern));
     }
 
-    /***
+    /**
      * 格式化时间
+     *
      * @param date yyyy-MM-dd
      * @return {@link Date}
      */
@@ -112,83 +125,98 @@ public class DateUtil {
 
 
     /**
+     * 判断两个时间是否是同一天
+     *
      * @param date1 等待比较第一个时间
      * @param date2 等待比较第二个时间
      * @return 比较结果
-     * @description 判断两个时间是否是同一天
+     * @description
      */
     public static boolean isSameDay(Date date1, Date date2) {
         return DateUtils.isSameDay(date1, date2);
     }
 
     /**
+     * 比较两个日历类数据是否相同
+     *
      * @param cal1 比较第一个日历类
      * @param cal2 比较第二个日历类
      * @return 比较结果
-     * @description 比较两个日历类数据是否相同
+     * @description
      */
     public static boolean isSameDay(Calendar cal1, Calendar cal2) {
         return DateUtils.isSameDay(cal1, cal2);
     }
 
     /**
+     * 增减n年份
+     *
      * @param date 需要新增时间
      * @param year 增加年份
      * @return 增加后年份
-     * @description 增减n年份
+     * @description
      */
     public static Date addYears(Date date, int year) {
         return DateUtils.addYears(date, year);
     }
 
     /**
+     * 增加月份
+     *
      * @param date  传入时间
      * @param month 需要增加月份
      * @return 增加月份
-     * @description 增加月份
+     * @description
      */
     public static Date addMonths(Date date, int month) {
         return DateUtils.addMonths(date, month);
     }
 
     /**
+     * 增加周
+     *
      * @param date   当前时间
      * @param amount 需要增加周
      * @return 增加后时间
-     * @description 增加周
+     * @description
      */
     public static Date addWeeks(Date date, int amount) {
         return DateUtils.addWeeks(date, amount);
     }
 
     /**
+     * 增加天
+     *
      * @param date   当前时间
      * @param amount 需要增加天数
      * @return 增加后时间
-     * @description 增加天
+     * @description
      */
     public static Date addDays(Date date, int amount) {
         return DateUtils.addDays(date, amount);
     }
 
     /**
+     * 增加小时
+     *
      * @param date   当前时间
      * @param amount 增加小时数
      * @return 增加后时间
-     * @description 增加小时
+     * @description
      */
     public static Date addHours(Date date, int amount) {
         return DateUtils.addHours(date, amount);
     }
 
     /**
+     * 增加分钟
+     *
      * @param date   当前时间
      * @param amount 增加分钟数
      * @return 增加后时间
-     * @description 增加分钟
      */
     public static Date addMinutes(Date date, int amount) {
-        return DateUtils.addHours(date, amount);
+        return DateUtils.addMinutes(date, amount);
     }
 
     /**
@@ -202,20 +230,22 @@ public class DateUtil {
     }
 
     /**
+     * 添加毫秒
+     *
      * @param date   当前时间
      * @param amount 增加毫秒
      * @return 增加后时间
-     * @description 添加毫秒
      */
     public static Date addMilliseconds(Date date, int amount) {
         return DateUtils.addMilliseconds(date, amount);
     }
 
     /**
+     * 计算两个时间相差的天数 先格式化时间
+     *
      * @param date1 {@link Date}
      * @param date2 {@link Date}
      * @return {@link Integer}
-     * @description 计算两个时间相差的天数 先格式化时间
      */
     public static int daysBetween(Date date1, Date date2, String pattern) {
         if (date1 == null || date2 == null) {
@@ -234,8 +264,9 @@ public class DateUtil {
         return Integer.parseInt(String.valueOf(between_days));
     }
 
-    /***
+    /**
      * 判断是否是周末
+     *
      * @param date {@link Date}
      * @return boolean
      */
@@ -246,10 +277,11 @@ public class DateUtil {
         return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
     }
 
-    /***
+    /**
      * 当前日期前n个交易日
+     *
      * @param date {@link Date}
-     * @param n int
+     * @param n    int
      * @return Date
      */
     public Date tradingTomorrowDay(Date date, int n) {
@@ -264,42 +296,35 @@ public class DateUtil {
         return new Date(calendar.getTimeInMillis());
     }
 
-    /***
+    /**
      * 计算两个时间相差的天数
+     *
      * @param date1 {@link Date}
      * @param date2 {@link Date}
      * @return int
      */
     public static int daysBetween(Date date1, Date date2) {
-        if (date1 == null || date2 == null) {
-            return 0;
-        }
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date1);
-        long time1 = cal.getTimeInMillis();
-        cal.setTime(date2);
-        long time2 = cal.getTimeInMillis();
-        Long between_days = (time2 - time1) / (1000 * 3600 * 24);
+        Long between_days = getTimestampDiff(date1, date2) / (1000 * 3600 * 24);
         return between_days.intValue();
     }
 
     /**
+     * 获取1-2的时间差，单位为ms
+     *
      * @param time1 {@link Date}
      * @param time2 {@link Date}
      * @return int
-     * @description : 获取1-2的时间差，单位为ms
      */
-    public static int getTimestampDeff(Date time1, Date time2) {
+    public static Long getTimestampDiff(Date time1, Date time2) {
         if (time1 == null || time2 == null) {
-            return 0;
+            return 0L;
         }
         Calendar cal = Calendar.getInstance();
         cal.setTime(time1);
         long m1 = cal.getTimeInMillis();
         cal.setTime(time2);
         long m2 = cal.getTimeInMillis();
-        long between_sec = (m2 - m1);
-        return Integer.parseInt(String.valueOf(between_sec));
+        return m2 - m1;
     }
 
     /**
@@ -322,12 +347,12 @@ public class DateUtil {
         int month = (days % 365) / 30;
         String age = "";
         if (year > 0) {
-            age = year + "岁";
+            age = year + AGE;
             if (month > 0) {
-                age = age + month + "个月";
+                age = age + month + MONTH;
             }
         } else if (month > 0) {
-            age = month + "个月";
+            age = month + MONTH;
         }
         return age;
     }
@@ -339,5 +364,15 @@ public class DateUtil {
      */
     public static String getNowUTCTimeStamp() {
         return OffsetDateTime.now().format(PATTERN_TIME_STAMP);
+    }
+
+    /**
+     * 获取某时间对应的时区
+     *
+     * @param date Date
+     * @return String
+     */
+    public static String timeZone(Date date) {
+        return String.valueOf(Integer.parseInt(DateFormatUtils.format(date, PATTERN_TIME_ZONE)) / 100);
     }
 }
