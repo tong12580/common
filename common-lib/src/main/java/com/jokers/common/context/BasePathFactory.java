@@ -3,6 +3,8 @@ package com.jokers.common.context;
 
 import com.jokers.pojo.enums.ContextParamDictionary;
 
+import java.util.Objects;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -77,6 +79,6 @@ public class BasePathFactory {
      * @description 获取资源文件路径
      */
     public static String getResourcePath(String resourceName) {
-        return BasePathFactory.class.getClassLoader().getResource(resourceName).getPath();
+        return Objects.requireNonNull(BasePathFactory.class.getClassLoader().getResource(resourceName)).getPath();
     }
 }
