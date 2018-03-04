@@ -4,7 +4,7 @@
 
     <groupId>io.github.tong12580</groupId>
     <artifactId>common-lib</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>common-lib</name>
     <description>this is springBoot common-lib</description>
@@ -52,7 +52,7 @@
         <url>https://github.com/tong12580/common</url>
         <connection>scm:git:https://github.com/tong12580/common.git</connection>
         <developerConnection>scm:git:https://github.com/tong12580/common.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>common-lib-1.1</tag>
   </scm>
 
     <build>
