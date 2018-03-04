@@ -47,9 +47,9 @@
 
     <scm>
         <url>https://github.com/tong12580/common</url>
-        <connection>scm:git:git@github.com:tong12580/common.git</connection>
-        <developerConnection>scm:git:git@github.com:tong12580/common.git</developerConnection>
-      <tag>HEAD</tag>
+        <connection>scm:git:https://github.com/tong12580/common.git</connection>
+        <developerConnection>scm:git:https://github.com/tong12580/common.git</developerConnection>
+        <tag>HEAD</tag>
   </scm>
 
     <build>
