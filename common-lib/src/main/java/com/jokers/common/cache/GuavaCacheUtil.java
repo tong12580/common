@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yuton
  * @version 1.0
- * @description 手工缓存实现
+ *  手工缓存实现
  * @since 2016/12/2 14:43
  */
 @Slf4j

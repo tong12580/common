@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 /**
  * @author yuton
- * @description 图片缩放截取Util
+ * 图片缩放截取Util
  * @since May 12, 2011 11:27:55 AM
  */
 @Slf4j
@@ -26,10 +26,10 @@ public class ImageUtil {
     /**
      * 实现图像的等比缩放
      *
-     * @param source
-     * @param targetW
-     * @param targetH
-     * @return
+     * @param source  source
+     * @param targetW 长
+     * @param targetH 宽
+     * @return BufferedImage
      */
     public static BufferedImage resize(BufferedImage source, int targetW,
                                        int targetH) {
@@ -71,10 +71,8 @@ public class ImageUtil {
      * @param outFilePath 截取后输出的路径
      * @param width       要截取宽度
      * @param hight       要截取的高度
-     * @param proportion
-     * @throws Exception
+     * @param proportion  比例
      */
-
     public static void saveImageAsJpg(String inFilePath, String outFilePath,
                                       int width, int hight, boolean proportion) throws Exception {
         File file = new File(inFilePath);
@@ -118,13 +116,13 @@ public class ImageUtil {
     }
 
     /**
-     * @param is
-     * @param deistPath
-     * @param newWidth
-     * @param newHeight
+     * @param is is
+     * @param deistPath 路径
+     * @param newWidth 新路径
+     * @param newHeight 新高度
      * @return int
-     * @Title: saveCompress
-     * @Description: 压缩图片，统一压缩成JPG格式，返回压缩后的大小（字节）
+     *  saveCompress
+     * : 压缩图片，统一压缩成JPG格式，返回压缩后的大小（字节）
      */
     public static int saveCompress(InputStream is, String deistPath,
                                    int newWidth, int newHeight) {
@@ -143,12 +141,12 @@ public class ImageUtil {
     }
 
     /**
-     * @param is
-     * @param deistPath
-     * @param newWidth
+     * @param is is
+     * @param deistPath 路径
+     * @param newWidth 新路径
      * @return int
-     * @Title: saveCompressBaseWidth
-     * @Description: 基于宽度等比压缩
+     *  saveCompressBaseWidth
+     * : 基于宽度等比压缩
      */
     public static int saveCompressBaseWidth(InputStream is, String deistPath,
                                             int newWidth) {
@@ -156,12 +154,12 @@ public class ImageUtil {
     }
 
     /**
-     * @param bytes
-     * @param deistPath
-     * @param newWidth
+     * @param bytes 字节
+     * @param deistPath 路径
+     * @param newWidth 新路径
      * @return int
-     * @Title: saveCompressBaseWidth
-     * @Description: 基于宽度等比压缩
+     *  saveCompressBaseWidth
+     * : 基于宽度等比压缩
      */
     public static int saveCompressBaseWidth(byte[] bytes, String deistPath,
                                             int newWidth) {
@@ -175,30 +173,30 @@ public class ImageUtil {
     }
 
     /**
-     * @param is
-     * @param destPath
-     * @param newH
+     * @param is is
+     * @param deistPath 路径
+     * @param newWidth 新路径
      * @return int
-     * @Title: compressBaseHeight
-     * @Description: 基于高度等比压缩
+     *  compressBaseHeight
+     * : 基于高度等比压缩
      */
-    public static int saveCompressBaseHeight(InputStream is, String destPath,
-                                             int newH) {
+    public static int saveCompressBaseHeight(InputStream is, String deistPath,
+                                             int newWidth) {
         try {
             BufferedImage srcImage = ImageIO.read(is);
-            return getCompressBaseWidthOrHight(srcImage, destPath, newH);
+            return getCompressBaseWidthOrHight(srcImage, deistPath, newWidth);
         } catch (Exception e) {
             return -1;
         }
     }
 
     /**
-     * @param is
-     * @param deistPath
-     * @param newH
+     * @param is is
+     * @param deistPath 路径
+     * @param newH 新路径
      * @return int
-     * @Title: saveCompressAndCutBaseHeight
-     * @Description: 压缩并截取图片，以高度为基准压缩，截图为居中正方形
+     *  saveCompressAndCutBaseHeight
+     * : 压缩并截取图片，以高度为基准压缩，截图为居中正方形
      */
     public static int saveCompressAndCutBaseHeight(InputStream is,
                                                    String deistPath, int newH) {
@@ -211,12 +209,12 @@ public class ImageUtil {
     }
 
     /**
-     * @param deistPath
-     * @param newH
-     * @param data
+     * @param deistPath 路径
+     * @param newH 新路径
+     * @param data 日期
      * @return int
-     * @Title: saveCompressAndCutBaseHeight
-     * @Description: 压缩并截取图片，以高度为基准压缩，截图为居中正方形
+     *  saveCompressAndCutBaseHeight
+     * : 压缩并截取图片，以高度为基准压缩，截图为居中正方形
      */
     public static int saveCompressAndCutBaseHeight(byte[] data,
                                                    String deistPath, int newH) {
@@ -230,12 +228,12 @@ public class ImageUtil {
     }
 
     /**
-     * @param is
-     * @param deistPath
-     * @param newH
+     * @param is is
+     * @param deistPath 路径
+     * @param newH 新路径
      * @return int
-     * @Title: savePicture
-     * @Description: 按比例压缩图片
+     *  savePicture
+     * : 按比例压缩图片
      */
     public static int savePictureTrumbs(InputStream is, String deistPath,
                                         int newH) {
@@ -243,26 +241,26 @@ public class ImageUtil {
     }
 
     /**
-     * @param data
-     * @param deistPath
-     * @param newH
+     * @param data 日期
+     * @param deistPath 路径
+     * @param newH 新路径
      * @return int
-     * @Title: savePicture
-     * @Description: 按比例压缩图片
+     *  savePicture
+     * : 按比例压缩图片
      */
     public static int savePictureTrumbs(byte[] data, String deistPath, int newH) {
         return saveCompressAndCutBaseHeight(data, deistPath, newH);
     }
 
     /**
-     * @param is
-     * @param x
-     * @param y
-     * @param width
-     * @param height
+     * @param is is
+     * @param x x
+     * @param y y
+     * @param width width
+     * @param height height
      * @return BufferedImage
-     * @Title: cutImage
-     * @Description: 裁剪图片
+     *  cutImage
+     * : 裁剪图片
      */
     public static BufferedImage cutImage(InputStream is, int x, int y,
                                          int width, int height) {
@@ -276,13 +274,13 @@ public class ImageUtil {
     }
 
     /**
-     * @param bi
-     * @param nw
-     * @param nh
-     * @param tarFile
+     * @param bi bi
+     * @param nw nw
+     * @param nh nh
+     * @param tarFile tarFile
      * @return boolean
-     * @Title: compressAndSave
-     * @Description: 压缩处理
+     *  compressAndSave
+     * : 压缩处理
      */
     public static boolean compressAndSave(BufferedImage bi, int nw, int nh,
                                           File tarFile) {
@@ -306,7 +304,7 @@ public class ImageUtil {
      * @param image          缩放后的图像
      * @param subImageBounds 要截取的子图的范围
      * @param subImageFile   要保存的文件
-     * @throws IOException
+     *
      */
     private static void saveSubImage(BufferedImage image,
                                      Rectangle subImageBounds, File subImageFile) throws IOException {

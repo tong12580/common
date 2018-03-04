@@ -5,7 +5,7 @@ import com.jokers.common.message.ResultMessage;
 /**
  * @author yuton
  * @version 1.0
- * @description 返回信息异常处理
+ *  返回信息异常处理
  * @since 2016/11/30 11:42
  */
 public class IResultException extends RuntimeException {

@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2017/9/4 10:47
  */
 public class LocationBo {

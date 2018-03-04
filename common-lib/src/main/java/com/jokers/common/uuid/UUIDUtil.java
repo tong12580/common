@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2017/2/8 10:48
  */
 public class UUIDUtil {
@@ -21,7 +21,7 @@ public class UUIDUtil {
 
     /**
      * @return String
-     * @description 获取短8位UUid
+     *  获取短8位UUid
      */
     public static String getShortUUid() {
         StringBuilder shortUUid = new StringBuilder();

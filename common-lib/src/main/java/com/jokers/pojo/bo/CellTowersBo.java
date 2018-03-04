@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2017/4/20 16:56
  */
 public class CellTowersBo {

@@ -2,7 +2,7 @@ package com.jokers.common;
 
 import com.jokers.common.http.HttpUtil;
 import com.jokers.common.json.JsonUtil;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -11,13 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import lombok.extern.slf4j.Slf4j;
-
 
 /**
  * @author yuton
  * @version 1.0
- * @description 公共校验方法
+ * 公共校验方法
  * @since 2016/8/2 12:06
  */
 @Slf4j
@@ -27,8 +25,8 @@ public class CommonTools {
     /**
      * 遍历Map并除去空值
      *
-     * @param reqMap {@link Map}
-     * @return {@link Map}
+     * @param reqMap reqMap {@link Map}
+     * @return reqMap {@link Map}
      */
     public static <K, V> Map<K, V> checkParamsAndDelEmpty(Map<K, V> reqMap) {
         reqMap.entrySet().stream().filter(map -> null == map.getValue()).forEach(map -> reqMap.remove(map.getKey()));
@@ -37,8 +35,8 @@ public class CommonTools {
 
     /***
      * 判断字符串是否只有数字及字母
-     * @param str {@link String}
-     * @return {@link boolean}
+     * @param str String
+     * @return String
      */
     public static boolean isNumOrChar(String str) {
         return str.matches("^[a-z0-9A-Z]+$");
@@ -46,7 +44,7 @@ public class CommonTools {
 
     /***
      * 判断字符串是否只含有中文
-     * @param str {@link String}
+     * @param str String
      * @return boolean
      */
     public static boolean isChineseChar(String str) {
@@ -55,8 +53,8 @@ public class CommonTools {
 
     /**
      * @param n int
-     * @return {@link String}
-     * @description 生成若干位随机数字字符
+     * @return String
+     * 生成若干位随机数字字符
      */
     public static String getRandomNum(int n) {
         return RandomStringUtils.randomNumeric(n);
@@ -64,8 +62,8 @@ public class CommonTools {
 
     /***
      * 随机若干位字符串只含字母
-     * @param n {@link int}
-     * @return {@link String}
+     * @param n String
+     * @return String
      */
     public static String getRandomStr(int n) {
         return RandomStringUtils.randomAlphabetic(n);
@@ -73,8 +71,8 @@ public class CommonTools {
 
     /***
      * 检查一个数组中是否包含某个特定的值
-     * @param arr {@link String []}
-     * @param targetValue {@link String}
+     * @param arr String []
+     * @param targetValue String []
      * @return boolean
      */
     public static boolean useLoop(String[] arr, String targetValue) {
@@ -87,36 +85,36 @@ public class CommonTools {
     }
 
     /**
-     * @param str {@link String}
-     * @return {@link boolean}
-     * @description 判断字符串是否为数字
+     * @param str String
+     * @return boolean
+     * 判断字符串是否为数字
      */
     public static boolean isNumber(String str) {
         return str.matches("[0-9]*");
     }
 
     /**
-     * @param phone {@link String}
-     * @return {@link boolean}
-     * @description 判断手机号是否合法
+     * @param phone String
+     * @return boolean
+     * 判断手机号是否合法
      */
     public static boolean isPhone(String phone) {
         return StringUtils.isNotBlank(phone) && phone.matches("^[1][3,4,5,7,8][0-9]{9}$");
     }
 
     /**
-     * @param email {@link String}
-     * @return {@link boolean}
-     * @description 判断邮箱号是否合法
+     * @param email String
+     * @return boolean
+     * 判断邮箱号是否合法
      */
     public static boolean isEmail(String email) {
         return email.matches("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
     }
 
     /**
-     * @param name {@link String}
+     * @param name String
      * @return String
-     * @description 获取文件后缀，返回如：.jpg
+     * 获取文件后缀，返回如：.jpg
      */
     public static String getFileSuffix(String name) {
         int loc = name.lastIndexOf('.');
@@ -127,9 +125,9 @@ public class CommonTools {
     }
 
     /**
-     * @param path {@link String}
+     * @param path String
      * @return void
-     * @description 创建目录，如果存在则不创建
+     * 创建目录，如果存在则不创建
      */
     public static boolean makeDir(String path) {
         return new File(path).mkdirs();
@@ -138,8 +136,8 @@ public class CommonTools {
 
     /***
      * 隐藏号码
-     * @param param {@link String}
-     * @return {@link String}
+     * @param param String
+     * @return String
      */
     public static String putConcealParam(String param) {
         return param.substring(0, 3) + "****"
@@ -148,18 +146,18 @@ public class CommonTools {
 
     /***
      * json to bean
-     * @param json {@link String}
-     * @param tClass {@link Class}
-     * @param <T> {@link T}
-     * @return {@link T}
+     * @param json String
+     * @param tClass Class
+     * @param <T> T
+     * @return T
      */
     public static <T> T getBean(String json, Class<T> tClass) throws IOException {
         return JsonUtil.jsonToBean(json, tClass, PATTERN_HAVE_TIME);
     }
 
     /**
-     * @return {@link String}
-     * @description 获取本机公网ip
+     * @return String
+     * 获取本机公网ip
      */
     public static String getLocalPublicIp() {
         String html = HttpUtil.httpGet(HttpUtil.SELECT_PUBLIC_IP_ADDRESS);
@@ -167,16 +165,16 @@ public class CommonTools {
     }
 
     /**
-     * @return {@link String}
-     * @description 获取本机操作系统名称
+     * @return String
+     * 获取本机操作系统名称
      */
     public static String getLocalOS() {
         return SystemUtils.OS_NAME;
     }
 
     /**
-     * @return {@link Long}
-     * @description 获取当前系统中 JVM最大可用堆空间
+     * @return Long
+     * 获取当前系统中 JVM最大可用堆空间
      */
     public static Long getJVMUsableMemory() {
         long max = Runtime.getRuntime().maxMemory();
@@ -188,7 +186,7 @@ public class CommonTools {
     /**
      * @param str String
      * @return String
-     * @description 替换表情符号
+     * 替换表情符号
      */
     public static String replaceEmoji(String str) {
         return str.replaceAll("[\\ud800\\udc00-\\udbff\\udfff\\ud800-\\udfff]", "*");

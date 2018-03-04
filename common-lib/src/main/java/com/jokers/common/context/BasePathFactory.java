@@ -8,14 +8,14 @@ import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @description : 路径工厂类
+ *  : 路径工厂类
  * @since 2011-6-2 下午04:39:46
  */
 public class BasePathFactory {
 
     /**
      * @return String
-     * @description 获取网站路径
+     *  获取网站路径
      */
     public static String getBasePath(HttpServletRequest request) {
         return getWebRootPath(request);
@@ -23,7 +23,7 @@ public class BasePathFactory {
 
     /**
      * @return String
-     * @description ProjectRootPath
+     *  ProjectRootPath
      */
     public static String getProjectRootPath() {
         return System.getProperty(ContextParamDictionary.PROJECT_PATH.getParamValue());
@@ -47,7 +47,7 @@ public class BasePathFactory {
 
     /**
      * @return String
-     * @description 获得classpath(........../WebRoot/WEB-INF/classes/)
+     *  获得classpath(........../WebRoot/WEB-INF/classes/)
      */
     public static String getClassPath() {
         return BasePathFactory.class.getProtectionDomain().getCodeSource().getLocation().getPath();
@@ -56,7 +56,7 @@ public class BasePathFactory {
     /**
      * @param request HttpServletRequest
      * @return String
-     * @description 获取URL请求路径
+     *  获取URL请求路径
      */
     public static String getWebRootPath(HttpServletRequest request) {
         return request.getScheme() + "://" + request.getServerName()
@@ -76,7 +76,7 @@ public class BasePathFactory {
     /**
      * @param resourceName String
      * @return String
-     * @description 获取资源文件路径
+     *  获取资源文件路径
      */
     public static String getResourcePath(String resourceName) {
         return Objects.requireNonNull(BasePathFactory.class.getClassLoader().getResource(resourceName)).getPath();

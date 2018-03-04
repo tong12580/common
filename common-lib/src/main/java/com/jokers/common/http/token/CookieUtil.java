@@ -59,7 +59,7 @@ public class CookieUtil {
      * @param cookieName  String
      * @param cookieValue String
      * @return void
-     * @description  添加cookie, 默认过期时间是6小时
+     *   添加cookie, 默认过期时间是6小时
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
                                  String cookieValue) {
@@ -78,7 +78,7 @@ public class CookieUtil {
      * @param cookieName  String
      * @param cookieValue String
      * @return void
-     * @description 添加cookie, 没有设置过期时间
+     *  添加cookie, 没有设置过期时间
      */
     public static void setCookieNoAge(HttpServletRequest request, HttpServletResponse response, String cookieName,
                                       String cookieValue) {
@@ -94,7 +94,7 @@ public class CookieUtil {
     /**
      * @param request    HttpServletRequest
      * @param cookieName String
-     * @description 根据cookieName来获取cookieValue
+     *  根据cookieName来获取cookieValue
      */
     public static String getCookieByName(HttpServletRequest request, String cookieName) {
         Cookie[] cookies = request.getCookies();

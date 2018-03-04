@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * @author yuton
  * @version 1.0
- * @description 时间工具类
+ *  时间工具类
  * @since 2017/2/22 20:10
  */
 @Slf4j
@@ -31,7 +31,7 @@ public class DateUtil {
     /**
      * 判断是否为正确日期
      *
-     * @param date 格式为：yyyy-MM-dd HH:mm:ss {@link String}
+     * @param date 格式为：yyyy-MM-dd HH:mm:ss String
      * @return boolean
      */
     public static boolean isDate(String date) {
@@ -47,8 +47,8 @@ public class DateUtil {
      * 对时间格式进行格式化
      *
      * @param date 时间类型
-     * @return yyyy-MM-dd {@link String}
-     * @description
+     * @return yyyy-MM-dd String
+     *
      */
     public static String format(Date date) {
         return DateFormatUtils.format(date, DateFormatUtils.ISO_DATE_FORMAT.getPattern());
@@ -58,7 +58,7 @@ public class DateUtil {
      * 格式化时间参数
      *
      * @param date 时间参数
-     * @return HH:mm:ss {@link String}
+     * @return HH:mm:ss String
      */
     public static String formatTime(Date date) {
         return DateFormatUtils.format(date, DateFormatUtils.ISO_TIME_NO_T_FORMAT.getPattern());
@@ -69,7 +69,7 @@ public class DateUtil {
      *
      * @param date    时间参数
      * @param pattern 格式化参数类型
-     * @return {@link String}
+     * @return String
      */
     public static String format(Date date, String pattern) {
         return DateFormatUtils.format(date, pattern);
@@ -79,17 +79,17 @@ public class DateUtil {
     /**
      * 当前时间  yyyy-MM-dd HH:mm:ss
      *
-     * @return {@link String}
-     * @description
+     * @return String
+     *
      */
     public static String getCurDatetime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(PATTERN_HAVE_TIME));
     }
 
     /**
-     * @param pattern {@link String}
-     * @return {@link String}
-     * @description 当前时间 pattern
+     * @param pattern String
+     * @return String
+     *  当前时间 pattern
      */
     public static String getCurDatetime(String pattern) {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern));
@@ -101,7 +101,7 @@ public class DateUtil {
      * @param pattern String
      * @param zoneId  ZoneId
      * @return String
-     * @description
+     *
      */
     public static String getCurDatetime(String pattern, ZoneId zoneId) {
         return LocalDateTime.now(zoneId).format(DateTimeFormatter.ofPattern(pattern));
@@ -130,7 +130,7 @@ public class DateUtil {
      * @param date1 等待比较第一个时间
      * @param date2 等待比较第二个时间
      * @return 比较结果
-     * @description
+     *
      */
     public static boolean isSameDay(Date date1, Date date2) {
         return DateUtils.isSameDay(date1, date2);
@@ -142,7 +142,7 @@ public class DateUtil {
      * @param cal1 比较第一个日历类
      * @param cal2 比较第二个日历类
      * @return 比较结果
-     * @description
+     *
      */
     public static boolean isSameDay(Calendar cal1, Calendar cal2) {
         return DateUtils.isSameDay(cal1, cal2);
@@ -154,7 +154,7 @@ public class DateUtil {
      * @param date 需要新增时间
      * @param year 增加年份
      * @return 增加后年份
-     * @description
+     *
      */
     public static Date addYears(Date date, int year) {
         return DateUtils.addYears(date, year);
@@ -166,7 +166,7 @@ public class DateUtil {
      * @param date  传入时间
      * @param month 需要增加月份
      * @return 增加月份
-     * @description
+     *
      */
     public static Date addMonths(Date date, int month) {
         return DateUtils.addMonths(date, month);
@@ -178,7 +178,7 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 需要增加周
      * @return 增加后时间
-     * @description
+     *
      */
     public static Date addWeeks(Date date, int amount) {
         return DateUtils.addWeeks(date, amount);
@@ -190,7 +190,7 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 需要增加天数
      * @return 增加后时间
-     * @description
+     *
      */
     public static Date addDays(Date date, int amount) {
         return DateUtils.addDays(date, amount);
@@ -202,7 +202,7 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 增加小时数
      * @return 增加后时间
-     * @description
+     *
      */
     public static Date addHours(Date date, int amount) {
         return DateUtils.addHours(date, amount);
@@ -223,7 +223,7 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 增加秒数
      * @return 增加后时间
-     * @description 增加秒
+     *  增加秒
      */
     public static Date addSeconds(Date date, int amount) {
         return DateUtils.addSeconds(date, amount);
@@ -339,7 +339,7 @@ public class DateUtil {
     /**
      * @param birthday Date
      * @return String
-     * @description : 计算年龄
+     *  : 计算年龄
      */
     public static String getAgeByBirthday(Date birthday) {
         int days = daysBetween(birthday, new Date());

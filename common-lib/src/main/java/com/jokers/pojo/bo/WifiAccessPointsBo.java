@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description Wi-Fi 接入点对象
+ *  Wi-Fi 接入点对象
  * @since 2017/4/20 17:15
  */
 public class WifiAccessPointsBo {

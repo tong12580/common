@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author yuton
  * @version 1.0
- * @description 地理位置请求Bo
+ *  地理位置请求Bo
  * @since 2017/4/20 17:10
  */
 public class GeographicPositionBo {

@@ -117,7 +117,7 @@ public class JsonUtil {
      * @param jsonStr String
      * @param type    Class
      * @return List<T>
-     * @description 将Json转为对应的List
+     *  将Json转为对应的List
      */
     public static <T> List<T> jsonToList(String jsonStr, Class<T> type) {
         Type listType = new TypeToken<ArrayList<T>>() {
@@ -196,7 +196,7 @@ public class JsonUtil {
     /***
      * json 转化为Bean jackson2 框架
      * @param json String
-     * @param tClass {@link Class}
+     * @param tClass Class
      * @param pattern {@link DateFormat}
      * @param <T> T
      * @return T

@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description 地理位置请求成功返回
+ *  地理位置请求成功返回
  * @since 2017/4/20 19:00
  */
 public class GPSussResultBo {

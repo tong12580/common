@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author yutong
  * @version 1.0
- * @description
+ *
  * @since 2018/2/19 14:16
  */
 public class MapBeanTransformUtil {
@@ -20,7 +20,7 @@ public class MapBeanTransformUtil {
     /**
      * @param bean Object
      * @return {@link Map}
-     * @description toMap
+     *  toMap
      */
     public static Map<String, Object> beanToMap(Object bean)
             throws IntrospectionException, InvocationTargetException, IllegalAccessException {
@@ -46,8 +46,8 @@ public class MapBeanTransformUtil {
      * Map转Bean
      * @param tClass {@link Class<T>}
      * @param map {@link Map}
-     * @param <T> {@link T}
-     * @return {@link T}
+     * @param <T> T
+     * @return T
      */
     public static <T> T mapToBean(Class<T> tClass, Map<String, Object> map) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
         BeanInfo beanInfo = Introspector.getBeanInfo(tClass);

@@ -7,7 +7,7 @@ import java.util.concurrent.Executor;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2017/7/19 11:54
  */
 public class ExecutorUtil {

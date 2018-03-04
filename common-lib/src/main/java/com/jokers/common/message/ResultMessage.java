@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2016/11/6 16:25
  */
 public enum ResultMessage {

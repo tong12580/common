@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 /**
  * @author yuton
  * @since 2016/9/29 9:56
- * @description Base64加密
+ *  Base64加密
  * @version 1.0
  */
 public class Base64Util {

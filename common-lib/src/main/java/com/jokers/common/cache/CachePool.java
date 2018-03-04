@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 
 /**
  * @version 1.0
- * @description 手工缓存实现
+ *  手工缓存实现
  */
 public class CachePool implements Cache {
     private static CachePool cachePool = new CachePool();

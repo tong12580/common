@@ -3,7 +3,7 @@ package com.jokers.common.uuid;
 /**
  * @author Twitter_Snowflake
  * @version 1.0
- * @description
+ *
  * @since 2017/4/11 17:00
  */
 public class SnowflakeIdWorker {

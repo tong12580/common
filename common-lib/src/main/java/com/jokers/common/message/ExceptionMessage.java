@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author yuton
  * @since 2016/8/8 16:25
- * @description
+ *
  * @version 1.0
  */
 public enum ExceptionMessage {

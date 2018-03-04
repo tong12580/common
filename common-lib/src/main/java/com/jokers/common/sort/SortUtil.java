@@ -20,6 +20,8 @@ public class SortUtil {
      * 归并排序
      * 时间复杂度为O(nlogn)
      * 速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列。
+     *
+     * @param list list
      */
     public static <T> void mergeSort(List<T> list) {
 
@@ -40,6 +42,8 @@ public class SortUtil {
      * 冒泡排序
      * 起泡排序平均时间复杂度为O(n2)
      * 稳定排序
+     *
+     * @param list list
      */
     public static <T> void bubbleSort(List<T> list) {
 
@@ -60,6 +64,8 @@ public class SortUtil {
      * 希尔排序
      * 平均时间复杂度为O(nlogn)
      * 不稳定排序
+     *
+     * @param list list
      */
     public static <T> void ShellSort(List<T> list) {
 
@@ -80,6 +86,8 @@ public class SortUtil {
      * 堆排序
      * 最坏时间复杂度为O(nlogn)
      * 不稳定排序
+     *
+     * @param list list
      */
     public static <T> void heapSort(List<T> list) {
 
@@ -100,17 +108,18 @@ public class SortUtil {
      * 希尔排序
      * 平均时间复杂度为O(nlogn)
      * 不稳定排序
+     *
+     * @param Arrays Arrays
      */
     public static <T> void ShellSort(T[] Arrays) {
 
-        Object[] Array = Arrays;
-        if (Array[0] instanceof String) {
-            sortStr.ShellSort(Array);
+        if (Arrays[0] instanceof String) {
+            sortStr.ShellSort(Arrays);
         } else {
-            sortNum.ShellSort(Array);
+            sortNum.ShellSort(Arrays);
         }
         int i = 0;
-        for (Object object : Array) {
+        for (Object object : Arrays) {
             Arrays[i] = ((T) object);
             i++;
         }
@@ -120,17 +129,18 @@ public class SortUtil {
      * 冒泡排序
      * 起泡排序平均时间复杂度为O(n2)
      * 稳定排序
+     *
+     * @param Arrays Arrays
      */
     public static <T> void bubbleSort(T[] Arrays) {
 
-        Object[] Array = Arrays;
-        if (Array[0] instanceof String) {
-            sortStr.bubbleSort(Array);
+        if (Arrays[0] instanceof String) {
+            sortStr.bubbleSort(Arrays);
         } else {
-            sortNum.bubbleSort(Array);
+            sortNum.bubbleSort(Arrays);
         }
         int i = 0;
-        for (Object object : Array) {
+        for (Object object : Arrays) {
             Arrays[i] = ((T) object);
             i++;
         }
@@ -140,17 +150,18 @@ public class SortUtil {
      * 归并排序
      * 时间复杂度为O(nlogn)
      * 速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列。
+     *
+     * @param Arrays Arrays
      */
     public static <T> void mergeSort(T[] Arrays) {
 
-        Object[] Array = Arrays;
-        if (Array[0] instanceof String) {
-            sortStr.mergeSort(Array);
+        if (Arrays[0] instanceof String) {
+            sortStr.mergeSort(Arrays);
         } else {
-            sortNum.mergeSort(Array);
+            sortNum.mergeSort(Arrays);
         }
         int i = 0;
-        for (Object object : Array) {
+        for (Object object : Arrays) {
             Arrays[i] = ((T) object);
             i++;
         }
@@ -160,17 +171,18 @@ public class SortUtil {
      * 堆排序
      * 最坏时间复杂度为O(nlogn)
      * 不稳定排序
+     *
+     * @param Arrays Arrays
      */
     public static <T> void heapSort(T[] Arrays) {
 
-        Object[] Array = Arrays;
-        if (Array[0] instanceof String) {
-            sortStr.heapSort(Array);
+        if (Arrays[0] instanceof String) {
+            sortStr.heapSort(Arrays);
         } else {
-            sortNum.heapSort(Array);
+            sortNum.heapSort(Arrays);
         }
         int i = 0;
-        for (Object object : Array) {
+        for (Object object : Arrays) {
             Arrays[i] = ((T) object);
             i++;
         }

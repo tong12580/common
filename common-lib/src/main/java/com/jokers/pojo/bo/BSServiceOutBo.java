@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description 基站服务返回信息
+ *  基站服务返回信息
  * @since 2017/4/6 16:20
  */
 public class BSServiceOutBo {

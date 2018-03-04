@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description 高德API消息接收
+ *  高德API消息接收
  * @since 2017/4/17 11:22
  */
 public class AmapBo {

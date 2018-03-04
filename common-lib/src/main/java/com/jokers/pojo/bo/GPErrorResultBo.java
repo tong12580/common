@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author yuton
  * @version 1.0
- * @description 谷歌位置错误信息返回
+ *  谷歌位置错误信息返回
  * @since 2017/4/20 19:07
  */
 public class GPErrorResultBo {

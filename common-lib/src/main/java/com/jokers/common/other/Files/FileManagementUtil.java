@@ -18,17 +18,18 @@ import java.nio.channels.FileChannel;
 /**
  * @author yuton
  * @version 1.0
- * @description 文件管理
+ * 文件管理
  * @since 2016/11/30 14:05
  */
 @Async
 public class FileManagementUtil {
 
     /**
-     * @description 文件下载
-     * @param response
-     * @param file
-     * @throws IOException
+     * 文件下载
+     *
+     * @param response HttpServletResponse
+     * @param file     File
+     * @throws IOException IOException
      */
     public static void exportFile(HttpServletResponse response, File file) throws IOException {
         String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
@@ -49,10 +50,11 @@ public class FileManagementUtil {
 
 
     /**
-     * @description 文件下载 nio 大缓存
-     * @param response
-     * @param file
-     * @throws IOException
+     * 文件下载 nio 大缓存
+     *
+     * @param response HttpServletResponse
+     * @param file     File
+     * @throws IOException IOException
      */
     public static void exportFileByNIO(HttpServletResponse response, File file) throws IOException {
         String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
@@ -86,9 +88,10 @@ public class FileManagementUtil {
 
     /**
      * 文件写入
-     * @param template
-     * @param templatePath
-     * @throws IOException
+     *
+     * @param template     template
+     * @param templatePath templatePath
+     * @throws IOException IOException
      */
     public void createXls(String template, String templatePath) throws IOException {
         byte[] buffer = template.getBytes();

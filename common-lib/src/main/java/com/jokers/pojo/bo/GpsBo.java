@@ -3,7 +3,7 @@ package com.jokers.pojo.bo;
 /**
  * @author yuton
  * @version 1.0
- * @description
+ *
  * @since 2017/4/7 16:13
  */
 public class GpsBo {

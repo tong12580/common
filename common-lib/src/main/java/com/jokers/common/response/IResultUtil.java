@@ -7,14 +7,14 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * @author yutong
  * @version 1.0
- * @description 返回结果统计调用方法
+ *  返回结果统计调用方法
  * @since 2018/2/19 14:10
  */
 public class IResultUtil {
     /**
      * 成功提示
      *
-     * @return {@link IResult}
+     * @return IResult
      */
     public static IResult<String> successResult() {
         return new Result<>(ResultMessage.STATUS_SUCCESS);
@@ -23,8 +23,8 @@ public class IResultUtil {
     /**
      * 成功提示 无返回参数
      *
-     * @param resultMessage {@link ResultMessage}
-     * @return {@link IResult}
+     * @param resultMessage ResultMessage
+     * @return IResult
      */
     public static IResult<String> successResult(ResultMessage resultMessage) {
         return new Result<>(resultMessage);
@@ -34,10 +34,10 @@ public class IResultUtil {
     /**
      * 成功提示 有返回
      *
-     * @param resultMessage {@link ResultMessage}
-     * @param result        {@link T}
-     * @param <T>           {@link T}
-     * @return {@link IResult}
+     * @param resultMessage ResultMessage
+     * @param result        T
+     * @param <T>           T
+     * @return IResult
      */
     public static <T> IResult<T> successResult(ResultMessage resultMessage, T result) {
         return new Result<>(resultMessage, result);
@@ -46,9 +46,9 @@ public class IResultUtil {
     /**
      * 成功提示 有返回
      *
-     * @param result {@link T}
-     * @param <T>    {@link T}
-     * @return {@link IResult}
+     * @param result T
+     * @param <T>    T
+     * @return IResult
      */
     public static <T> IResult<T> successResult(T result) {
         return new Result<>(ResultMessage.STATUS_SUCCESS, result);
@@ -57,7 +57,7 @@ public class IResultUtil {
     /**
      * 错误提示
      *
-     * @return {@link IResult}
+     * @return IResult
      */
     public static IResult<String> errorResult() {
         return new Result<>(ResultMessage.STATUS_FAILURE);
@@ -79,8 +79,8 @@ public class IResultUtil {
     /**
      * 错误提示 无返回
      *
-     * @param resultMessage {@link ResultMessage}
-     * @return {@link IResult}
+     * @param resultMessage ResultMessage
+     * @return IResult
      */
     public static <T> IResult<T> errorResult(ResultMessage resultMessage) {
         return new Result<>(resultMessage);
@@ -90,8 +90,8 @@ public class IResultUtil {
      * 错误提示
      *
      * @param code {@link Integer}
-     * @param msg  {@link String}
-     * @return {@link IResult}
+     * @param msg  String
+     * @return IResult
      */
     public static IResult<String> errorResult(int code, String msg) {
         IResult<String> result = new Result<>();
@@ -103,8 +103,8 @@ public class IResultUtil {
     /**
      * 错误提示
      *
-     * @param resultMessage {@link ResultMessage}
-     * @return {@link IResult}
+     * @param resultMessage ResultMessage
+     * @return IResult
      */
     public static IResult<String> errorResult(ResultMessage resultMessage, String specificMsg) {
         IResult<String> result = new Result<>();
