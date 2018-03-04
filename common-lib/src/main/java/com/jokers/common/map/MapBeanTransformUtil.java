@@ -10,17 +10,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * <p>MapBeanTransformUtil class.</p>
+ *
  * @author yutong
  * @version 1.0
- *
  * @since 2018/2/19 14:16
  */
 public class MapBeanTransformUtil {
 
     /**
+     * <p>beanToMap.</p>
+     *
      * @param bean Object
-     * @return {@link Map}
+     * @return Map
      *  toMap
+     * @throws java.beans.IntrospectionException if any.
+     * @throws java.lang.reflect.InvocationTargetException if any.
+     * @throws java.lang.IllegalAccessException if any.
      */
     public static Map<String, Object> beanToMap(Object bean)
             throws IntrospectionException, InvocationTargetException, IllegalAccessException {
@@ -42,12 +48,18 @@ public class MapBeanTransformUtil {
         return returnMap;
     }
 
-    /***
+    /**
+     *
      * Map转Bean
-     * @param tClass {@link Class<T>}
-     * @param map {@link Map}
+     *
+     * @param tClass Class
+     * @param map Map
      * @param <T> T
      * @return T
+     * @throws java.beans.IntrospectionException if any.
+     * @throws java.lang.IllegalAccessException if any.
+     * @throws java.lang.InstantiationException if any.
+     * @throws java.lang.reflect.InvocationTargetException if any.
      */
     public static <T> T mapToBean(Class<T> tClass, Map<String, Object> map) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
         BeanInfo beanInfo = Introspector.getBeanInfo(tClass);

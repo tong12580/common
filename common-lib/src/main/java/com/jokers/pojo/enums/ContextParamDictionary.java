@@ -4,6 +4,9 @@ import lombok.Getter;
 
 /**
  * Created by yuton on 2016/9/3.
+ *
+ * @author yuton
+ * @version $Id: $Id
  */
 public enum ContextParamDictionary {
     PROJECT_PATH("webAppRootKey", "projectRootPath");

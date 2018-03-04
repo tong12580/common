@@ -16,9 +16,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * <p>ImageUtil class.</p>
+ *
  * @author yuton
  * 图片缩放截取Util
  * @since May 12, 2011 11:27:55 AM
+ * @version $Id: $Id
  */
 @Slf4j
 public class ImageUtil {
@@ -72,6 +75,7 @@ public class ImageUtil {
      * @param width       要截取宽度
      * @param hight       要截取的高度
      * @param proportion  比例
+     * @throws java.lang.Exception if any.
      */
     public static void saveImageAsJpg(String inFilePath, String outFilePath,
                                       int width, int hight, boolean proportion) throws Exception {
@@ -116,6 +120,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompress.</p>
+     *
      * @param is is
      * @param deistPath 路径
      * @param newWidth 新路径
@@ -141,6 +147,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompressBaseWidth.</p>
+     *
      * @param is is
      * @param deistPath 路径
      * @param newWidth 新路径
@@ -154,6 +162,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompressBaseWidth.</p>
+     *
      * @param bytes 字节
      * @param deistPath 路径
      * @param newWidth 新路径
@@ -173,6 +183,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompressBaseHeight.</p>
+     *
      * @param is is
      * @param deistPath 路径
      * @param newWidth 新路径
@@ -191,6 +203,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompressAndCutBaseHeight.</p>
+     *
      * @param is is
      * @param deistPath 路径
      * @param newH 新路径
@@ -209,6 +223,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>saveCompressAndCutBaseHeight.</p>
+     *
      * @param deistPath 路径
      * @param newH 新路径
      * @param data 日期
@@ -228,6 +244,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>savePictureTrumbs.</p>
+     *
      * @param is is
      * @param deistPath 路径
      * @param newH 新路径
@@ -241,6 +259,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>savePictureTrumbs.</p>
+     *
      * @param data 日期
      * @param deistPath 路径
      * @param newH 新路径
@@ -253,6 +273,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>cutImage.</p>
+     *
      * @param is is
      * @param x x
      * @param y y
@@ -274,6 +296,8 @@ public class ImageUtil {
     }
 
     /**
+     * <p>compressAndSave.</p>
+     *
      * @param bi bi
      * @param nw nw
      * @param nh nh

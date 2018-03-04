@@ -5,6 +5,8 @@ import com.jokers.common.message.ResultMessage;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * <p>IResultUtil class.</p>
+ *
  * @author yutong
  * @version 1.0
  *  返回结果统计调用方法
@@ -34,6 +36,7 @@ public class IResultUtil {
     /**
      * 成功提示 有返回
      *
+     * @param resultMessage ResultMessage
      * @param resultMessage ResultMessage
      * @param result        T
      * @param <T>           T
@@ -81,6 +84,7 @@ public class IResultUtil {
      *
      * @param resultMessage ResultMessage
      * @return IResult
+     * @param <T> a T object.
      */
     public static <T> IResult<T> errorResult(ResultMessage resultMessage) {
         return new Result<>(resultMessage);
@@ -89,7 +93,7 @@ public class IResultUtil {
     /**
      * 错误提示
      *
-     * @param code {@link Integer}
+     * @param code {@link java.lang.Integer}
      * @param msg  String
      * @return IResult
      */
@@ -105,6 +109,7 @@ public class IResultUtil {
      *
      * @param resultMessage ResultMessage
      * @return IResult
+     * @param specificMsg a {@link java.lang.String} object.
      */
     public static IResult<String> errorResult(ResultMessage resultMessage, String specificMsg) {
         IResult<String> result = new Result<>();

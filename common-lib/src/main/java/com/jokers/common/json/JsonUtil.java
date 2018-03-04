@@ -29,6 +29,7 @@ import java.util.TimeZone;
  *
  * @author yuTong
  * @since 2015/11/07 15:28:47
+ * @version $Id: $Id
  */
 public class JsonUtil {
 
@@ -86,7 +87,8 @@ public class JsonUtil {
     /**
      * 将对象转换成json格式(并自定义日期格式)
      *
-     * @param ts Object
+     * @param dateFormat dateFormat
+     * @param ts         Object
      * @return String
      */
     public static String objectToJsonDateSerializer(Object ts, final String dateFormat) {
@@ -114,10 +116,12 @@ public class JsonUtil {
     }
 
     /**
+     * 将Json转为对应的List
+     *
      * @param jsonStr String
      * @param type    Class
-     * @return List<T>
-     *  将Json转为对应的List
+     * @return List
+     * @param <T> a T object.
      */
     public static <T> List<T> jsonToList(String jsonStr, Class<T> type) {
         Type listType = new TypeToken<ArrayList<T>>() {
@@ -134,6 +138,8 @@ public class JsonUtil {
      *
      * @param jsonStr String
      * @return Map
+     * @param <K> a K object.
+     * @param <V> a V object.
      */
     public static <K, V> Map<K, V> jsonToMap(String jsonStr) {
         Map<K, V> objMap = null;
@@ -150,6 +156,8 @@ public class JsonUtil {
      *
      * @param jsonStr String
      * @return T
+     * @param cl a {@link java.lang.Class} object.
+     * @param <T> a T object.
      */
     public static <T> T jsonToBean(String jsonStr, Class<T> cl) {
         return gson != null ? gson.fromJson(jsonStr, cl) : null;
@@ -161,6 +169,8 @@ public class JsonUtil {
      * @param jsonStr String
      * @param cl      Class
      * @return T
+     * @param pattern a {@link java.lang.String} object.
+     * @param <T> a T object.
      */
     public static <T> T jsonToBeanDateSerializer(String jsonStr, Class<T> cl, final String pattern) {
         T bean;
@@ -178,11 +188,15 @@ public class JsonUtil {
         return bean;
     }
 
-    /***
+    /**
+     *
      * 获取json键的值
+     *
      * @param jsonStr String
      * @param k K
      * @return V
+     * @param <K> a K object.
+     * @param <V> a V object.
      */
     public static <K, V> V getJsonValue(String jsonStr, K k) {
         V bean = null;
@@ -193,24 +207,30 @@ public class JsonUtil {
         return bean;
     }
 
-    /***
+    /**
+     *
      * json 转化为Bean jackson2 框架
+     *
      * @param json String
      * @param tClass Class
-     * @param pattern {@link DateFormat}
+     * @param pattern {@link java.text.DateFormat}
      * @param <T> T
      * @return T
+     * @throws java.io.IOException if any.
      */
     public static <T> T jsonToBean(String json, Class<T> tClass, String pattern) throws IOException {
         objectMapper.setDateFormat(new SimpleDateFormat(pattern));
         return objectMapper.readValue(json, tClass);
     }
 
-    /***
+    /**
+     *
      * object 转化为json jackson2 框架
-     * @param object {@link Object}
-     * @param pattern {@link DateFormat}
+     *
+     * @param object {@link java.lang.Object}
+     * @param pattern {@link java.text.DateFormat}
      * @return String
+     * @throws com.fasterxml.jackson.core.JsonProcessingException if any.
      */
     public static String objectToJson(Object object, String pattern) throws JsonProcessingException {
         DateFormat dateFormat = new SimpleDateFormat(pattern);

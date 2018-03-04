@@ -3,33 +3,40 @@ package com.jokers.common.context;
 
 import com.jokers.pojo.enums.ContextParamDictionary;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
- *  : 路径工厂类
+ * : 路径工厂类
+ *
+ * @author yuton
+ * @version $Id: $Id
  * @since 2011-6-2 下午04:39:46
  */
 public class BasePathFactory {
 
     /**
+     * <p>获取网站路径.</p>
+     *
+     * @param request HttpServletRequest
      * @return String
-     *  获取网站路径
      */
     public static String getBasePath(HttpServletRequest request) {
         return getWebRootPath(request);
     }
 
     /**
+     * <p>getProjectRootPath.</p>
+     *
      * @return String
-     *  ProjectRootPath
      */
     public static String getProjectRootPath() {
         return System.getProperty(ContextParamDictionary.PROJECT_PATH.getParamValue());
     }
 
     /**
+     * <p>getBaseFilePath.</p>
+     *
      * @return String
      * @author yuTong
      * @since 2015-8-17 下午02:27:46
@@ -46,17 +53,19 @@ public class BasePathFactory {
     }
 
     /**
+     * <p>获得classpath(........../WebRoot/WEB-INF/classes/).</p>
+     *
      * @return String
-     *  获得classpath(........../WebRoot/WEB-INF/classes/)
      */
     public static String getClassPath() {
         return BasePathFactory.class.getProtectionDomain().getCodeSource().getLocation().getPath();
     }
 
     /**
+     * <p>获取URL请求路径.</p>
+     *
      * @param request HttpServletRequest
      * @return String
-     *  获取URL请求路径
      */
     public static String getWebRootPath(HttpServletRequest request) {
         return request.getScheme() + "://" + request.getServerName()
@@ -74,9 +83,10 @@ public class BasePathFactory {
     }
 
     /**
+     * <p>获取资源文件路径.</p>
+     *
      * @param resourceName String
      * @return String
-     *  获取资源文件路径
      */
     public static String getResourcePath(String resourceName) {
         return Objects.requireNonNull(BasePathFactory.class.getClassLoader().getResource(resourceName)).getPath();

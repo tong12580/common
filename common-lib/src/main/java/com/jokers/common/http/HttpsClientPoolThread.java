@@ -33,9 +33,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
+ * https客户端
+ *
  * @author yuton
  * @version 1.0
- *  https客户端
  * @since 2017/5/30 14:24
  */
 @Slf4j

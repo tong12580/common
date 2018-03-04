@@ -8,12 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+/**
+ * <p>CookieUtil class.</p>
+ *
+ * @author yuton
+ * @version $Id: $Id
+ */
 public class CookieUtil {
 
     private final static int COOKIE_MAX_AGE = 60 * 60 * 6;// 设置cookie有效期6小时
     private final static String HISTORY_PATH = "/";// Cookie中，历史浏览的Cookie的路径
 
-    // 清除所有历史浏览记录
+    /**
+     * 清除所有历史浏览记录
+     *
+     * @param cookieName cookieName
+     * @param request    request
+     * @param response   response
+     */
     public static void removeAllHistoryCookie(String cookieName, HttpServletRequest request,
                                               HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
@@ -32,7 +44,13 @@ public class CookieUtil {
         }
     }
 
-    // 清除单个的浏览记录
+    /**
+     * 清除单个的浏览记录
+     *
+     * @param cookieName cookieName
+     * @param request    request
+     * @param response   response
+     */
     public static void removeCookieByName(HttpServletRequest request, HttpServletResponse response, String cookieName) {
         if (cookieName == null) {
             return;
@@ -54,12 +72,13 @@ public class CookieUtil {
     }
 
     /**
+     * <p>setCookie.</p>
+     *
      * @param request     HttpServletRequest
      * @param response    HttpServletResponse
      * @param cookieName  String
      * @param cookieValue String
-     * @return void
-     *   添加cookie, 默认过期时间是6小时
+     * 添加cookie, 默认过期时间是6小时
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
                                  String cookieValue) {
@@ -73,12 +92,13 @@ public class CookieUtil {
     }
 
     /**
+     * <p>setCookieNoAge.</p>
+     *
      * @param request     HttpServletRequest
      * @param response    HttpServletResponse
      * @param cookieName  String
      * @param cookieValue String
-     * @return void
-     *  添加cookie, 没有设置过期时间
+     * 添加cookie, 没有设置过期时间
      */
     public static void setCookieNoAge(HttpServletRequest request, HttpServletResponse response, String cookieName,
                                       String cookieValue) {
@@ -92,9 +112,12 @@ public class CookieUtil {
 
 
     /**
+     * <p>getCookieByName.</p>
+     *
      * @param request    HttpServletRequest
      * @param cookieName String
-     *  根据cookieName来获取cookieValue
+     *                   根据cookieName来获取cookieValue
+     * @return a {@link java.lang.String} object.
      */
     public static String getCookieByName(HttpServletRequest request, String cookieName) {
         Cookie[] cookies = request.getCookies();

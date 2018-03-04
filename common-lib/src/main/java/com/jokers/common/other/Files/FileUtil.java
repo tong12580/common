@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * <p>FileUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  文件NIO流操作
@@ -17,11 +19,14 @@ import java.util.stream.Collectors;
  */
 public class FileUtil {
     /**
+     * <p>read.</p>
+     *
      * @param path     String
      * @param charsets Charset
      * @return context String 返回文件內容
      *
      *  文件讀取 一次讀取一行 適合打文件讀取
+     * @throws java.io.IOException if any.
      */
     public static List<String> read(String path, Charset charsets) throws IOException {
         if (null == charsets) {
@@ -31,11 +36,14 @@ public class FileUtil {
     }
 
     /**
+     * <p>readFile.</p>
+     *
      * @param path     String
      * @param charsets Charset
      * @return context String 返回文件內容
      *
      *  文件讀取 一次讀取一行 并轉化為String 且在末尾添加換行符 適合打文件讀取
+     * @throws java.io.IOException if any.
      */
     public static String readFile(String path, Charset charsets) throws IOException {
         List<String> contentLines = read(path, charsets);
@@ -46,11 +54,14 @@ public class FileUtil {
     }
 
     /**
+     * <p>writeByLine.</p>
+     *
      * @param path    String
      * @param context String
      * @return path String
      *
      *  文件寫 按行寫文件
+     * @throws java.io.IOException if any.
      */
     public static String writeByLine(String path, List<String> context) throws IOException {
         Files.write(Paths.get(path), context, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
@@ -58,11 +69,14 @@ public class FileUtil {
     }
 
     /**
+     * <p>writeByBytes.</p>
+     *
      * @param path    String
      * @param context Charset
      * @return path String
      *
      *  文件寫 字節流寫入
+     * @throws java.io.IOException if any.
      */
     public static String writeByBytes(String path, String context) throws IOException {
         byte[] contentBytes = context.getBytes(StandardCharsets.UTF_8);

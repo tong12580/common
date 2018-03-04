@@ -3,9 +3,10 @@ package com.jokers.common.uuid;
 import java.util.UUID;
 
 /**
+ * <p>UUIDUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
- *
  * @since 2017/2/8 10:48
  */
 public class UUIDUtil {
@@ -20,6 +21,8 @@ public class UUIDUtil {
             'W', 'X', 'Y', 'Z'};
 
     /**
+     * <p>getShortUUid.</p>
+     *
      * @return String
      *  获取短8位UUid
      */

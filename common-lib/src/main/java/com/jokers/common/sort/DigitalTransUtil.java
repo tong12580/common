@@ -4,6 +4,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * <p>DigitalTransUtil class.</p>
+ *
  * @author 刘志强
  * @author yuton 校对
  * @version 1.0
@@ -25,10 +27,22 @@ public class DigitalTransUtil {
         return String.valueOf(hexChangeDecimalLong(hex));
     }
 
+    /**
+     * <p>hexChangeDecimalInt.</p>
+     *
+     * @param hex a {@link java.lang.String} object.
+     * @return a int.
+     */
     public static int hexChangeDecimalInt(String hex) {
         return Integer.parseInt(hex, 16);
     }
 
+    /**
+     * <p>hexChangeDecimalLong.</p>
+     *
+     * @param hex a {@link java.lang.String} object.
+     * @return a long.
+     */
     public static long hexChangeDecimalLong(String hex) {
         return Long.parseLong(hex, 16);
     }
@@ -135,8 +149,10 @@ public class DigitalTransUtil {
 
     /**
      * 十六进制串转化为byte数组
+     *
      * @param hex hex
      * @return the array of byte
+     * @throws java.lang.IllegalArgumentException if any.
      */
     public static byte[] hex2byte(String hex) throws IllegalArgumentException {
         if (hex.length() % 2 != 0) {
@@ -229,6 +245,12 @@ public class DigitalTransUtil {
         return (byte) _HEX.indexOf(c);
     }
 
+    /**
+     * <p>amrDecode.</p>
+     *
+     * @param rawBytes an array of byte.
+     * @return an array of byte.
+     */
     public static byte[] amrDecode(byte[] rawBytes) {
         String hex = byte2hex(rawBytes);
         String tran = hex.replaceAll("[7][D][0][1]", "7D");
@@ -239,6 +261,12 @@ public class DigitalTransUtil {
         return hex2byte(tran);
     }
 
+    /**
+     * <p>amrEncode.</p>
+     *
+     * @param rawBytes an array of byte.
+     * @return an array of byte.
+     */
     public static byte[] amrEncode(byte[] rawBytes) {
         String hex = byte2hex(rawBytes);
         StringBuilder tran = new StringBuilder();
@@ -268,6 +296,12 @@ public class DigitalTransUtil {
         return hex2byte(tran.toString());
     }
 
+    /**
+     * <p>byte2Base64String.</p>
+     *
+     * @param b an array of byte.
+     * @return a {@link java.lang.String} object.
+     */
     public static String byte2Base64String(byte[] b) {
         byte[] beforeBase64 = amrDecode(b);
         String base64 = Base64.encodeBase64String(beforeBase64);
@@ -276,6 +310,12 @@ public class DigitalTransUtil {
         return base64;
     }
 
+    /**
+     * <p>base64String2byte.</p>
+     *
+     * @param s a {@link java.lang.String} object.
+     * @return an array of byte.
+     */
     public static byte[] base64String2byte(String s) {
         s = s.replaceAll("\\n", "");
         s = s.replaceAll("\\r", "");
@@ -284,6 +324,8 @@ public class DigitalTransUtil {
     }
 
     /**
+     * <p>hexStr2BinStr.</p>
+     *
      * @param hexString hexString
      * @return 将十六进制转换为二进制字符串   16-2
      */
@@ -292,6 +334,8 @@ public class DigitalTransUtil {
     }
 
     /**
+     * <p>bytes2BinStr.</p>
+     *
      * @param bArray 二进制数组
      * @return 二进制数组转换为二进制字符串   2-2
      */
@@ -310,6 +354,8 @@ public class DigitalTransUtil {
     }
 
     /**
+     * <p>hexStr2BinArr.</p>
+     *
      * @param hexString 十六进制字符串
      * @return 将十六进制转换为二进制字节数组   16-2
      */

@@ -3,9 +3,10 @@ package com.jokers.common.message;
 import lombok.Getter;
 
 /**
+ * <p>ResultMessage class.</p>
+ *
  * @author yuton
  * @version 1.0
- *
  * @since 2016/11/6 16:25
  */
 public enum ResultMessage {

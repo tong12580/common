@@ -26,7 +26,8 @@ import java.util.Map;
 import java.util.Objects;
 
 
-/***
+/**
+ *
  * HTTP请求公共类
  *
  * @author yuTong
@@ -35,9 +36,13 @@ import java.util.Objects;
  */
 @Slf4j
 public class HttpUtil {
+    /** Constant <code>SELECT_PUBLIC_IP_ADDRESS="http://www.ip138.com/ip2city.asp"</code> */
     public static final String SELECT_PUBLIC_IP_ADDRESS = "http://www.ip138.com/ip2city.asp";
+    /** Constant <code>CONTENT_TYPE_APPLICATION_OCTET_STREAM="application/octet-stream"</code> */
     public static final String CONTENT_TYPE_APPLICATION_OCTET_STREAM = "application/octet-stream";
+    /** Constant <code>LOCATION="Location"</code> */
     public static final String LOCATION = "Location";
+    /** Constant <code>CONTENT_DISPOSITION="Content-Disposition"</code> */
     public static final String CONTENT_DISPOSITION = "Content-Disposition";
     private static final String APPLICATION_JSON = "application/json";
     private static final String CONTENT_TYPE_TEXT_JSON = "text/json";
@@ -52,6 +57,8 @@ public class HttpUtil {
      *
      * @param url  String
      * @param json String
+     * @return String
+     * @throws java.io.IOException java.io.IOException
      * @author yuTong
      */
     public static String postJSON(String url, String json) throws IOException {
@@ -93,8 +100,10 @@ public class HttpUtil {
     /**
      * 云之讯短信请求
      *
-     * @param url  String
-     * @param json String
+     * @param authorization authorization
+     * @param url           String
+     * @param json          String
+     * @return String
      * @author yuTong
      */
     public static String httpPostWithJSONToSMS(String url, String json, String authorization) {
@@ -131,6 +140,8 @@ public class HttpUtil {
     }
 
     /**
+     * <p>httpJSON.</p>
+     *
      * @param url     String
      * @param json    String json字符串
      * @param headers String 请求头
@@ -235,8 +246,10 @@ public class HttpUtil {
         return result;
     }
 
-    /***
+    /**
+     *
      * httpGet
+     *
      * @param url String
      * @param params Map
      * @return String

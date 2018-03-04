@@ -1,9 +1,10 @@
 package com.jokers.common.uuid;
 
 /**
+ * <p>SnowflakeIdWorker class.</p>
+ *
  * @author Twitter_Snowflake
  * @version 1.0
- *
  * @since 2017/4/11 17:00
  */
 public class SnowflakeIdWorker {
@@ -81,6 +82,13 @@ public class SnowflakeIdWorker {
 
     private volatile static SnowflakeIdWorker snowflakeIdWorker;
 
+    /**
+     * <p>getInstance.</p>
+     *
+     * @param workerId a long.
+     * @param datacenterId a long.
+     * @return a {@link com.jokers.common.uuid.SnowflakeIdWorker} object.
+     */
     public static SnowflakeIdWorker getInstance(long workerId, long datacenterId) {
         if (snowflakeIdWorker == null) {
             synchronized (SnowflakeIdWorker.class) {

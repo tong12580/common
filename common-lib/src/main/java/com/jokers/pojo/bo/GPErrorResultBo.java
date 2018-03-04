@@ -3,6 +3,8 @@ package com.jokers.pojo.bo;
 import java.util.List;
 
 /**
+ * <p>GPErrorResultBo class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  谷歌位置错误信息返回
@@ -16,10 +18,20 @@ public class GPErrorResultBo {
 
     private ErrorBean error;
 
+    /**
+     * <p>Getter for the field <code>error</code>.</p>
+     *
+     * @return a {@link com.jokers.pojo.bo.GPErrorResultBo.ErrorBean} object.
+     */
     public ErrorBean getError() {
         return error;
     }
 
+    /**
+     * <p>Setter for the field <code>error</code>.</p>
+     *
+     * @param error a {@link com.jokers.pojo.bo.GPErrorResultBo.ErrorBean} object.
+     */
     public void setError(ErrorBean error) {
         this.error = error;
     }

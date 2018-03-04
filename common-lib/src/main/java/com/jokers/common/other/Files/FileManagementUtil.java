@@ -16,6 +16,8 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
+ * <p>FileManagementUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
  * 文件管理
@@ -29,7 +31,7 @@ public class FileManagementUtil {
      *
      * @param response HttpServletResponse
      * @param file     File
-     * @throws IOException IOException
+     * @throws java.io.IOException java.io.IOException
      */
     public static void exportFile(HttpServletResponse response, File file) throws IOException {
         String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
@@ -54,7 +56,7 @@ public class FileManagementUtil {
      *
      * @param response HttpServletResponse
      * @param file     File
-     * @throws IOException IOException
+     * @throws java.io.IOException java.io.IOException
      */
     public static void exportFileByNIO(HttpServletResponse response, File file) throws IOException {
         String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
@@ -91,7 +93,8 @@ public class FileManagementUtil {
      *
      * @param template     template
      * @param templatePath templatePath
-     * @throws IOException IOException
+     * @param templatePath templatePath
+     * @throws java.io.IOException java.io.IOException
      */
     public void createXls(String template, String templatePath) throws IOException {
         byte[] buffer = template.getBytes();

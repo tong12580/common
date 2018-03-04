@@ -1,6 +1,8 @@
 package com.jokers.pojo.bo;
 
 /**
+ * <p>AmapBo class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  高德API消息接收
@@ -19,34 +21,74 @@ public class AmapBo {
     private String infocode;
     private ResultBean result;
 
+    /**
+     * <p>Getter for the field <code>status</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getStatus() {
         return status;
     }
 
+    /**
+     * <p>Setter for the field <code>status</code>.</p>
+     *
+     * @param status a {@link java.lang.String} object.
+     */
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * <p>Getter for the field <code>info</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getInfo() {
         return info;
     }
 
+    /**
+     * <p>Setter for the field <code>info</code>.</p>
+     *
+     * @param info a {@link java.lang.String} object.
+     */
     public void setInfo(String info) {
         this.info = info;
     }
 
+    /**
+     * <p>Getter for the field <code>infocode</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getInfocode() {
         return infocode;
     }
 
+    /**
+     * <p>Setter for the field <code>infocode</code>.</p>
+     *
+     * @param infocode a {@link java.lang.String} object.
+     */
     public void setInfocode(String infocode) {
         this.infocode = infocode;
     }
 
+    /**
+     * <p>Getter for the field <code>result</code>.</p>
+     *
+     * @return a {@link com.jokers.pojo.bo.AmapBo.ResultBean} object.
+     */
     public ResultBean getResult() {
         return result;
     }
 
+    /**
+     * <p>Setter for the field <code>result</code>.</p>
+     *
+     * @param result a {@link com.jokers.pojo.bo.AmapBo.ResultBean} object.
+     */
     public void setResult(ResultBean result) {
         this.result = result;
     }

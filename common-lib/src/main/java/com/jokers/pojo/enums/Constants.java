@@ -3,9 +3,12 @@ package com.jokers.pojo.enums;
 import lombok.Getter;
 
 /**
+ * <p>Constants class.</p>
+ *
  * @author yutong
  *  常量接口
  * @since 2016-3-8 下午06:36:58
+ * @version $Id: $Id
  */
 public enum Constants {
 

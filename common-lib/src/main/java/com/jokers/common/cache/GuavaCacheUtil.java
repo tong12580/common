@@ -13,6 +13,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <p>GuavaCacheUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  手工缓存实现
@@ -27,6 +29,11 @@ public class GuavaCacheUtil implements Cache {
     private final boolean allowNullValues;
     private static GuavaCacheUtil guavaCacheUtil = new GuavaCacheUtil();
 
+    /**
+     * <p>builder.</p>
+     *
+     * @return a {@link com.jokers.common.cache.GuavaCacheUtil} object.
+     */
     public static GuavaCacheUtil builder() {
         return guavaCacheUtil;
     }
@@ -47,16 +54,19 @@ public class GuavaCacheUtil implements Cache {
         this.allowNullValues = allowNullValues;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getName() {
         return this.name;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Object getNativeCache() {
         return this.cache;
     }
 
+    /** {@inheritDoc} */
     @Override
     public ValueWrapper get(Object key) {
         key = getKey(key.toString());
@@ -65,6 +75,7 @@ public class GuavaCacheUtil implements Cache {
         return toWrapper(value);
     }
 
+    /** {@inheritDoc} */
     @Override
     public <T> T get(Object key, Class<T> aClass) {
         key = getKey(key.toString());
@@ -73,11 +84,13 @@ public class GuavaCacheUtil implements Cache {
         return value;
     }
 
+    /** {@inheritDoc} */
     @Override
     public <T> T get(Object o, Callable<T> callable) {
         return null;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void put(Object key, Object value) {
         key = getKey(key.toString());
@@ -85,6 +98,7 @@ public class GuavaCacheUtil implements Cache {
         log.debug("getKey = {}, getObject = {}", key, JsonUtil.objectToJson(value));
     }
 
+    /** {@inheritDoc} */
     @Override
     public ValueWrapper putIfAbsent(Object key, Object value) {
         PutIfAbsentCallable callable = new PutIfAbsentCallable(value);
@@ -96,12 +110,14 @@ public class GuavaCacheUtil implements Cache {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void evict(Object key) {
         this.cache.invalidate(key);
         log.debug("deleteKey = {}", key);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void clear() {
         this.cache.invalidateAll();

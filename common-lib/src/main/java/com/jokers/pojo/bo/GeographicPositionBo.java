@@ -3,6 +3,8 @@ package com.jokers.pojo.bo;
 import java.util.List;
 
 /**
+ * <p>GeographicPositionBo class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  地理位置请求Bo
@@ -28,58 +30,128 @@ public class GeographicPositionBo {
     private List<CellTowersBo> cellTowers;
     private List<WifiAccessPointsBo> wifiAccessPointsBos;
 
+    /**
+     * <p>Getter for the field <code>homeMobileCountryCode</code>.</p>
+     *
+     * @return a int.
+     */
     public int getHomeMobileCountryCode() {
         return homeMobileCountryCode;
     }
 
+    /**
+     * <p>Setter for the field <code>homeMobileCountryCode</code>.</p>
+     *
+     * @param homeMobileCountryCode a int.
+     */
     public void setHomeMobileCountryCode(int homeMobileCountryCode) {
         this.homeMobileCountryCode = homeMobileCountryCode;
     }
 
+    /**
+     * <p>Getter for the field <code>homeMobileNetworkCode</code>.</p>
+     *
+     * @return a int.
+     */
     public int getHomeMobileNetworkCode() {
         return homeMobileNetworkCode;
     }
 
+    /**
+     * <p>Setter for the field <code>homeMobileNetworkCode</code>.</p>
+     *
+     * @param homeMobileNetworkCode a int.
+     */
     public void setHomeMobileNetworkCode(int homeMobileNetworkCode) {
         this.homeMobileNetworkCode = homeMobileNetworkCode;
     }
 
+    /**
+     * <p>Getter for the field <code>radioType</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getRadioType() {
         return radioType;
     }
 
+    /**
+     * <p>Setter for the field <code>radioType</code>.</p>
+     *
+     * @param radioType a {@link java.lang.String} object.
+     */
     public void setRadioType(String radioType) {
         this.radioType = radioType;
     }
 
+    /**
+     * <p>Getter for the field <code>carrier</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getCarrier() {
         return carrier;
     }
 
+    /**
+     * <p>Setter for the field <code>carrier</code>.</p>
+     *
+     * @param carrier a {@link java.lang.String} object.
+     */
     public void setCarrier(String carrier) {
         this.carrier = carrier;
     }
 
+    /**
+     * <p>Getter for the field <code>considerIp</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getConsiderIp() {
         return considerIp;
     }
 
+    /**
+     * <p>Setter for the field <code>considerIp</code>.</p>
+     *
+     * @param considerIp a {@link java.lang.String} object.
+     */
     public void setConsiderIp(String considerIp) {
         this.considerIp = considerIp;
     }
 
+    /**
+     * <p>Getter for the field <code>cellTowers</code>.</p>
+     *
+     * @return a {@link java.util.List} object.
+     */
     public List<CellTowersBo> getCellTowers() {
         return cellTowers;
     }
 
+    /**
+     * <p>Setter for the field <code>cellTowers</code>.</p>
+     *
+     * @param cellTowers a {@link java.util.List} object.
+     */
     public void setCellTowers(List<CellTowersBo> cellTowers) {
         this.cellTowers = cellTowers;
     }
 
+    /**
+     * <p>Getter for the field <code>wifiAccessPointsBos</code>.</p>
+     *
+     * @return a {@link java.util.List} object.
+     */
     public List<WifiAccessPointsBo> getWifiAccessPointsBos() {
         return wifiAccessPointsBos;
     }
 
+    /**
+     * <p>Setter for the field <code>wifiAccessPointsBos</code>.</p>
+     *
+     * @param wifiAccessPointsBos a {@link java.util.List} object.
+     */
     public void setWifiAccessPointsBos(List<WifiAccessPointsBo> wifiAccessPointsBos) {
         this.wifiAccessPointsBos = wifiAccessPointsBos;
     }

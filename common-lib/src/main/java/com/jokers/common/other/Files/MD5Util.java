@@ -5,6 +5,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * <p>MD5Util class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  md5加密
@@ -13,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 public class MD5Util {
 
     /**
+     * <p>getMD5Encode.</p>
+     *
      * @param fields {@link String []}
      * @return md5
      *  MD5 33位加密

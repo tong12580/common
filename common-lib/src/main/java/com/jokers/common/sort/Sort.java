@@ -4,6 +4,7 @@ package com.jokers.common.sort;
  * 排序算法
  *
  * @author yuton
+ * @version $Id: $Id
  */
 public interface Sort {
 

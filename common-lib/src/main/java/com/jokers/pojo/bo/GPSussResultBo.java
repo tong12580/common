@@ -1,6 +1,8 @@
 package com.jokers.pojo.bo;
 
 /**
+ * <p>GPSussResultBo class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  地理位置请求成功返回
@@ -16,18 +18,38 @@ public class GPSussResultBo {
     private LocationBean location;
     private int accuracy;
 
+    /**
+     * <p>Getter for the field <code>location</code>.</p>
+     *
+     * @return a {@link com.jokers.pojo.bo.GPSussResultBo.LocationBean} object.
+     */
     public LocationBean getLocation() {
         return location;
     }
 
+    /**
+     * <p>Setter for the field <code>location</code>.</p>
+     *
+     * @param location a {@link com.jokers.pojo.bo.GPSussResultBo.LocationBean} object.
+     */
     public void setLocation(LocationBean location) {
         this.location = location;
     }
 
+    /**
+     * <p>Getter for the field <code>accuracy</code>.</p>
+     *
+     * @return a int.
+     */
     public int getAccuracy() {
         return accuracy;
     }
 
+    /**
+     * <p>Setter for the field <code>accuracy</code>.</p>
+     *
+     * @param accuracy a int.
+     */
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
     }

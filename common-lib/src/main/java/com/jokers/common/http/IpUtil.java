@@ -5,6 +5,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
+ * <p>IpUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  ip获取
@@ -17,7 +19,7 @@ public class IpUtil {
     /**
      * 获取http请求的真实IP地址
      *
-     * @param request {@link HttpServletRequest}
+     * @param request {@link javax.servlet.http.HttpServletRequest}
      * @return String
      */
     public static String getIPAddress(HttpServletRequest request) {

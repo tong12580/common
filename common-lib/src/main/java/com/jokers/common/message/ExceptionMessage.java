@@ -3,9 +3,10 @@ package com.jokers.common.message;
 import lombok.Getter;
 
 /**
+ * <p>ExceptionMessage class.</p>
+ *
  * @author yuton
  * @since 2016/8/8 16:25
- *
  * @version 1.0
  */
 public enum ExceptionMessage {

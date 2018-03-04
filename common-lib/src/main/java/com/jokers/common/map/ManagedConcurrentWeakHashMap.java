@@ -16,13 +16,25 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+/**
+ * <p>ManagedConcurrentWeakHashMap class.</p>
+ *
+ * @author yuton
+ * @version $Id: $Id
+ */
 public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implements ConcurrentMap<K, V> {
     private final ConcurrentMap<ManagedConcurrentWeakHashMap.Key, V> map = new ConcurrentHashMap<>();
     private final ReferenceQueue<Object> queue = new ReferenceQueue<>();
 
+    /**
+     * <p>Constructor for ManagedConcurrentWeakHashMap.</p>
+     */
     public ManagedConcurrentWeakHashMap() {
     }
 
+    /**
+     * <p>maintain.</p>
+     */
     public void maintain() {
         ManagedConcurrentWeakHashMap.Key key;
         while ((key = (ManagedConcurrentWeakHashMap.Key) this.queue.poll()) != null) {
@@ -42,26 +54,31 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
         return new ManagedConcurrentWeakHashMap.Key(key, null);
     }
 
+    /** {@inheritDoc} */
     @Override
     public int size() {
         return this.map.size();
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isEmpty() {
         return this.map.isEmpty();
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean containsValue(Object value) {
         return value != null && this.map.containsValue(value);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean containsKey(Object key) {
         return key != null && this.map.containsKey(this.createLookupKey(key));
     }
 
+    /** {@inheritDoc} */
     @Override
     public Set<Entry<K, V>> entrySet() {
         return new AbstractSet<Entry<K, V>>() {
@@ -125,11 +142,13 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
         };
     }
 
+    /** {@inheritDoc} */
     @Override
     public V getOrDefault(Object key, V defaultValue) {
         return map.getOrDefault(key, defaultValue);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void forEach(BiConsumer<? super K, ? super V> action) {
         Objects.requireNonNull(action);
@@ -147,34 +166,46 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public V get(Object key) {
         return key == null ? null : this.map.get(this.createLookupKey(key));
     }
 
+    /** {@inheritDoc} */
     @Override
     public V put(K key, V value) {
         Objects.requireNonNull(value);
         return this.map.put(this.createStoreKey(key), value);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean remove(Object key, Object value) {
         remove(key);
         return null == get(key);
     }
 
+    /** {@inheritDoc} */
     @Override
     public V remove(Object key) {
         return this.map.remove(this.createLookupKey(key));
     }
 
+    /** {@inheritDoc} */
     @Override
     public void clear() {
         this.map.clear();
         this.maintain();
     }
 
+    /**
+     * <p>putIfAbsent.</p>
+     *
+     * @param key a K object.
+     * @param value a V object.
+     * @return a V object.
+     */
     public V putIfAbsent(K key, V value) {
         Objects.requireNonNull(value);
         ManagedConcurrentWeakHashMap.Key storeKey = this.createStoreKey(key);
@@ -187,23 +218,27 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
     }
 
 
+    /** {@inheritDoc} */
     @Override
     public Collection<V> values() {
         return this.map.values();
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean replace(K key, V oldValue, V newValue) {
         Objects.requireNonNull(newValue);
         return this.map.replace(this.createLookupKey(key), oldValue, newValue);
     }
 
+    /** {@inheritDoc} */
     @Override
     public V replace(K key, V value) {
         Objects.requireNonNull(value);
         return this.map.replace(this.createLookupKey(key), value);
     }
 
+    /** {@inheritDoc} */
     @Override
     public V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction) {
         Objects.requireNonNull(mappingFunction);
@@ -213,6 +248,7 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
                 (v = putIfAbsent(key, newValue)) == null) ? newValue : v;
     }
 
+    /** {@inheritDoc} */
     @Override
     public V computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);
@@ -228,6 +264,7 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
         return null;
     }
 
+    /** {@inheritDoc} */
     @Override
     public V compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);
@@ -273,6 +310,7 @@ public class ManagedConcurrentWeakHashMap<K, V> extends AbstractMap<K, V> implem
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public V merge(K key, V value, BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);

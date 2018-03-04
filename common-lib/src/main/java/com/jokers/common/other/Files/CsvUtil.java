@@ -10,6 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
+ * <p>CsvUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
  *  cvs文件处理
@@ -17,6 +19,12 @@ import java.util.List;
  */
 @Slf4j
 public class CsvUtil {
+    /**
+     * <p>read.</p>
+     *
+     * @param path a {@link java.lang.String} object.
+     * @return a {@link java.util.List} object.
+     */
     public static List<String> read(String path) {
         List<String> list = Lists.newArrayList();
         try {

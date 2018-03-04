@@ -13,6 +13,7 @@ import java.util.Map;
  * 验证身份证号码
  *
  * @author zzb
+ * @version $Id: $Id
  */
 public class IdcardUtil {
     /**
@@ -183,6 +184,9 @@ public class IdcardUtil {
 
     /**
      * 验证身份证是否合法
+     *
+     * @param idCard a {@link java.lang.String} object.
+     * @return a boolean.
      */
     public static boolean validateCard(String idCard) {
         String card = idCard.trim();

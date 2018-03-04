@@ -22,6 +22,7 @@ public class SortUtil {
      * 速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列。
      *
      * @param list list
+     * @param <T> a T object.
      */
     public static <T> void mergeSort(List<T> list) {
 
@@ -44,6 +45,7 @@ public class SortUtil {
      * 稳定排序
      *
      * @param list list
+     * @param <T> a T object.
      */
     public static <T> void bubbleSort(List<T> list) {
 
@@ -66,6 +68,7 @@ public class SortUtil {
      * 不稳定排序
      *
      * @param list list
+     * @param <T> a T object.
      */
     public static <T> void ShellSort(List<T> list) {
 
@@ -88,6 +91,7 @@ public class SortUtil {
      * 不稳定排序
      *
      * @param list list
+     * @param <T> a T object.
      */
     public static <T> void heapSort(List<T> list) {
 
@@ -110,6 +114,7 @@ public class SortUtil {
      * 不稳定排序
      *
      * @param Arrays Arrays
+     * @param <T> a T object.
      */
     public static <T> void ShellSort(T[] Arrays) {
 
@@ -131,6 +136,7 @@ public class SortUtil {
      * 稳定排序
      *
      * @param Arrays Arrays
+     * @param <T> a T object.
      */
     public static <T> void bubbleSort(T[] Arrays) {
 
@@ -152,6 +158,7 @@ public class SortUtil {
      * 速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列。
      *
      * @param Arrays Arrays
+     * @param <T> a T object.
      */
     public static <T> void mergeSort(T[] Arrays) {
 
@@ -173,6 +180,7 @@ public class SortUtil {
      * 不稳定排序
      *
      * @param Arrays Arrays
+     * @param <T> a T object.
      */
     public static <T> void heapSort(T[] Arrays) {
 

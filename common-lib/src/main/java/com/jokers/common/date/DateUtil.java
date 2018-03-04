@@ -15,9 +15,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * <p>DateUtil class.</p>
+ *
  * @author yuton
  * @version 1.0
- *  时间工具类
+ * 时间工具类
  * @since 2017/2/22 20:10
  */
 @Slf4j
@@ -48,7 +50,6 @@ public class DateUtil {
      *
      * @param date 时间类型
      * @return yyyy-MM-dd String
-     *
      */
     public static String format(Date date) {
         return DateFormatUtils.format(date, DateFormatUtils.ISO_DATE_FORMAT.getPattern());
@@ -80,16 +81,17 @@ public class DateUtil {
      * 当前时间  yyyy-MM-dd HH:mm:ss
      *
      * @return String
-     *
      */
     public static String getCurDatetime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(PATTERN_HAVE_TIME));
     }
 
     /**
+     * <p>getCurDatetime.</p>
+     *
      * @param pattern String
      * @return String
-     *  当前时间 pattern
+     * 当前时间 pattern
      */
     public static String getCurDatetime(String pattern) {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern));
@@ -101,7 +103,6 @@ public class DateUtil {
      * @param pattern String
      * @param zoneId  ZoneId
      * @return String
-     *
      */
     public static String getCurDatetime(String pattern, ZoneId zoneId) {
         return LocalDateTime.now(zoneId).format(DateTimeFormatter.ofPattern(pattern));
@@ -110,8 +111,9 @@ public class DateUtil {
     /**
      * 格式化时间
      *
-     * @param date yyyy-MM-dd
-     * @return {@link Date}
+     * @param pattern yyyy-MM-dd
+     * @param date    String
+     * @return {@link java.util.Date}
      */
     public static Date getCurDate(String date, String pattern) {
         FastDateFormat format = FastDateFormat.getInstance(pattern);
@@ -130,7 +132,6 @@ public class DateUtil {
      * @param date1 等待比较第一个时间
      * @param date2 等待比较第二个时间
      * @return 比较结果
-     *
      */
     public static boolean isSameDay(Date date1, Date date2) {
         return DateUtils.isSameDay(date1, date2);
@@ -142,7 +143,6 @@ public class DateUtil {
      * @param cal1 比较第一个日历类
      * @param cal2 比较第二个日历类
      * @return 比较结果
-     *
      */
     public static boolean isSameDay(Calendar cal1, Calendar cal2) {
         return DateUtils.isSameDay(cal1, cal2);
@@ -154,7 +154,6 @@ public class DateUtil {
      * @param date 需要新增时间
      * @param year 增加年份
      * @return 增加后年份
-     *
      */
     public static Date addYears(Date date, int year) {
         return DateUtils.addYears(date, year);
@@ -166,7 +165,6 @@ public class DateUtil {
      * @param date  传入时间
      * @param month 需要增加月份
      * @return 增加月份
-     *
      */
     public static Date addMonths(Date date, int month) {
         return DateUtils.addMonths(date, month);
@@ -178,7 +176,6 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 需要增加周
      * @return 增加后时间
-     *
      */
     public static Date addWeeks(Date date, int amount) {
         return DateUtils.addWeeks(date, amount);
@@ -190,7 +187,6 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 需要增加天数
      * @return 增加后时间
-     *
      */
     public static Date addDays(Date date, int amount) {
         return DateUtils.addDays(date, amount);
@@ -202,7 +198,6 @@ public class DateUtil {
      * @param date   当前时间
      * @param amount 增加小时数
      * @return 增加后时间
-     *
      */
     public static Date addHours(Date date, int amount) {
         return DateUtils.addHours(date, amount);
@@ -220,10 +215,11 @@ public class DateUtil {
     }
 
     /**
+     * <p>增加秒.</p>
+     *
      * @param date   当前时间
      * @param amount 增加秒数
      * @return 增加后时间
-     *  增加秒
      */
     public static Date addSeconds(Date date, int amount) {
         return DateUtils.addSeconds(date, amount);
@@ -243,9 +239,10 @@ public class DateUtil {
     /**
      * 计算两个时间相差的天数 先格式化时间
      *
-     * @param date1 {@link Date}
-     * @param date2 {@link Date}
-     * @return {@link Integer}
+     * @param date1   Date {@link java.util.Date}
+     * @param date2   Date {@link java.util.Date}
+     * @param pattern a {@link java.lang.String} object.
+     * @return int {@link java.lang.Integer}
      */
     public static int daysBetween(Date date1, Date date2, String pattern) {
         if (date1 == null || date2 == null) {
@@ -267,7 +264,7 @@ public class DateUtil {
     /**
      * 判断是否是周末
      *
-     * @param date {@link Date}
+     * @param date {@link java.util.Date}
      * @return boolean
      */
     public static boolean isWeekEnd(Date date) {
@@ -280,7 +277,7 @@ public class DateUtil {
     /**
      * 当前日期前n个交易日
      *
-     * @param date {@link Date}
+     * @param date {@link java.util.Date}
      * @param n    int
      * @return Date
      */
@@ -299,8 +296,8 @@ public class DateUtil {
     /**
      * 计算两个时间相差的天数
      *
-     * @param date1 {@link Date}
-     * @param date2 {@link Date}
+     * @param date1 {@link java.util.Date}
+     * @param date2 {@link java.util.Date}
      * @return int
      */
     public static int daysBetween(Date date1, Date date2) {
@@ -311,8 +308,8 @@ public class DateUtil {
     /**
      * 获取1-2的时间差，单位为ms
      *
-     * @param time1 {@link Date}
-     * @param time2 {@link Date}
+     * @param time1 {@link java.util.Date}
+     * @param time2 {@link java.util.Date}
      * @return int
      */
     public static Long getTimestampDiff(Date time1, Date time2) {
@@ -337,9 +334,11 @@ public class DateUtil {
     }
 
     /**
+     * <p>getAgeByBirthday.</p>
+     *
      * @param birthday Date
      * @return String
-     *  : 计算年龄
+     * : 计算年龄
      */
     public static String getAgeByBirthday(Date birthday) {
         int days = daysBetween(birthday, new Date());
