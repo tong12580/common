@@ -11,6 +11,28 @@
 |:---------- |:---------:|---:|
 | 2017/09/27  | joker      | 1.0 |
 
+----
+
+## mave 中央仓库下载地址
+
+Apache Maven
+
+```
+		<dependency>
+			<groupId>io.github.tong12580</groupId>
+			<artifactId>common-lib</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+```
+
+Gradle/Grails
+
+```
+compile 'io.github.tong12580:common-lib:1.1'
+
+```
+
 ## 简介
 
 1.这个一个 基于SpringBoot或者说SpringCloud的一个工具类
@@ -44,4 +66,5 @@
 
 1. Netty
 2. redis
-3. ....
+3. JWT
+4. ....
