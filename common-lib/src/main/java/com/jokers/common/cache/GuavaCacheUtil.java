@@ -13,11 +13,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <p>GuavaCacheUtil class.</p>
+ * <p>GuavaCacheUtil 缓存实现.</p>
  *
  * @author yuton
  * @version 1.0
- *  手工缓存实现
  * @since 2016/12/2 14:43
  */
 @Slf4j

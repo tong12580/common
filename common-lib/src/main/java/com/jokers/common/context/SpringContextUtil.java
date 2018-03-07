@@ -6,10 +6,9 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * <p>SpringContextUtil class.</p>
+ * <p>获取spring容器，以访问容器中定义的其他bean class.</p>
  *
  * @author yuton
- * 获取spring容器，以访问容器中定义的其他bean
  * @since May 6, 2011 2:35:22 PM
  * @version $Id: $Id
  */

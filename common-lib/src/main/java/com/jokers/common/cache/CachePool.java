@@ -9,10 +9,9 @@ import java.util.WeakHashMap;
 import java.util.concurrent.Callable;
 
 /**
- * <p>CachePool class.</p>
+ * <p>WeakHashMap缓存实现.</p>
  *
  * @version 1.0
- *  手工缓存实现
  * @author yuton
  */
 public class CachePool implements Cache {
