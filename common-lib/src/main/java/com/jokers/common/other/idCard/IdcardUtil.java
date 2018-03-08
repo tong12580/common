@@ -1,11 +1,10 @@
 package com.jokers.common.other.idCard;
 
-import com.google.common.collect.Maps;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -55,89 +54,91 @@ public class IdcardUtil {
      * 最低年限
      */
     private static final int MIN = 1930;
-    private static Map<String, String> cityCodes = Maps.newHashMap();
+    private static Map<String, String> cityCodes = new HashMap<String ,String>() {{
+        put("11", "北京");
+        put("12", "天津");
+        put("13", "河北");
+        put("14", "山西");
+        put("15", "内蒙古");
+        put("21", "辽宁");
+        put("22", "吉林");
+        put("23", "黑龙江");
+        put("31", "上海");
+        put("32", "江苏");
+        put("33", "浙江");
+        put("34", "安徽");
+        put("35", "福建");
+        put("36", "江西");
+        put("37", "山东");
+        put("41", "河南");
+        put("42", "湖北");
+        put("43", "湖南");
+        put("44", "广东");
+        put("45", "广西");
+        put("46", "海南");
+        put("50", "重庆");
+        put("51", "四川");
+        put("52", "贵州");
+        put("53", "云南");
+        put("54", "西藏");
+        put("61", "陕西");
+        put("62", "甘肃");
+        put("63", "青海");
+        put("64", "宁夏");
+        put("65", "新疆");
+        put("71", "台湾");
+        put("81", "香港");
+        put("82", "澳门");
+        put("91", "国外");
+    }};
+
     /**
      * 台湾身份首字母对应数字
      */
-    private static Map<String, Integer> twFirstCode = Maps.newHashMap();
+    private static Map<String, Integer> twFirstCode = new HashMap<String, Integer>() {{
+        put("A", 10);
+        put("B", 11);
+        put("C", 12);
+        put("D", 13);
+        put("E", 14);
+        put("F", 15);
+        put("G", 16);
+        put("H", 17);
+        put("J", 18);
+        put("K", 19);
+        put("L", 20);
+        put("M", 21);
+        put("N", 22);
+        put("P", 23);
+        put("Q", 24);
+        put("R", 25);
+        put("S", 26);
+        put("T", 27);
+        put("U", 28);
+        put("V", 29);
+        put("X", 30);
+        put("Y", 31);
+        put("W", 32);
+        put("Z", 33);
+        put("I", 34);
+        put("O", 35);
+    }};
+
     /**
      * 香港身份首字母对应数字
      */
-    private static Map<String, Integer> hkFirstCode = Maps.newHashMap();
-
-    static {
-        cityCodes.put("11", "北京");
-        cityCodes.put("12", "天津");
-        cityCodes.put("13", "河北");
-        cityCodes.put("14", "山西");
-        cityCodes.put("15", "内蒙古");
-        cityCodes.put("21", "辽宁");
-        cityCodes.put("22", "吉林");
-        cityCodes.put("23", "黑龙江");
-        cityCodes.put("31", "上海");
-        cityCodes.put("32", "江苏");
-        cityCodes.put("33", "浙江");
-        cityCodes.put("34", "安徽");
-        cityCodes.put("35", "福建");
-        cityCodes.put("36", "江西");
-        cityCodes.put("37", "山东");
-        cityCodes.put("41", "河南");
-        cityCodes.put("42", "湖北");
-        cityCodes.put("43", "湖南");
-        cityCodes.put("44", "广东");
-        cityCodes.put("45", "广西");
-        cityCodes.put("46", "海南");
-        cityCodes.put("50", "重庆");
-        cityCodes.put("51", "四川");
-        cityCodes.put("52", "贵州");
-        cityCodes.put("53", "云南");
-        cityCodes.put("54", "西藏");
-        cityCodes.put("61", "陕西");
-        cityCodes.put("62", "甘肃");
-        cityCodes.put("63", "青海");
-        cityCodes.put("64", "宁夏");
-        cityCodes.put("65", "新疆");
-        cityCodes.put("71", "台湾");
-        cityCodes.put("81", "香港");
-        cityCodes.put("82", "澳门");
-        cityCodes.put("91", "国外");
-        twFirstCode.put("A", 10);
-        twFirstCode.put("B", 11);
-        twFirstCode.put("C", 12);
-        twFirstCode.put("D", 13);
-        twFirstCode.put("E", 14);
-        twFirstCode.put("F", 15);
-        twFirstCode.put("G", 16);
-        twFirstCode.put("H", 17);
-        twFirstCode.put("J", 18);
-        twFirstCode.put("K", 19);
-        twFirstCode.put("L", 20);
-        twFirstCode.put("M", 21);
-        twFirstCode.put("N", 22);
-        twFirstCode.put("P", 23);
-        twFirstCode.put("Q", 24);
-        twFirstCode.put("R", 25);
-        twFirstCode.put("S", 26);
-        twFirstCode.put("T", 27);
-        twFirstCode.put("U", 28);
-        twFirstCode.put("V", 29);
-        twFirstCode.put("X", 30);
-        twFirstCode.put("Y", 31);
-        twFirstCode.put("W", 32);
-        twFirstCode.put("Z", 33);
-        twFirstCode.put("I", 34);
-        twFirstCode.put("O", 35);
-        hkFirstCode.put("A", 1);
-        hkFirstCode.put("B", 2);
-        hkFirstCode.put("C", 3);
-        hkFirstCode.put("R", 18);
-        hkFirstCode.put("U", 21);
-        hkFirstCode.put("Z", 26);
-        hkFirstCode.put("X", 24);
-        hkFirstCode.put("W", 23);
-        hkFirstCode.put("O", 15);
-        hkFirstCode.put("N", 14);
-    }
+    private static Map<String, Integer> hkFirstCode = new HashMap<String, Integer>() {{
+        put("A", 1);
+        put("B", 2);
+        put("C", 3);
+        put("R", 18);
+        put("U", 21);
+        put("Z", 26);
+        put("X", 24);
+        put("W", 23);
+        put("O", 15);
+        put("N", 14);
+    }};
 
     /**
      * 将15位身份证号码转换为18位
@@ -635,7 +636,4 @@ public class IdcardUtil {
     private static boolean checkLeapYear(int year) {
         return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
     }
-//    public static void main(String[] args) {
-//		System.out.println(validateCard("430521198704086612"));
-//	}
 }
