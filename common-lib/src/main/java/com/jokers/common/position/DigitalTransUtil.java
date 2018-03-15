@@ -1,15 +1,14 @@
-package com.jokers.common.sort;
+package com.jokers.common.position;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * <p>DigitalTransUtil class.</p>
+ * <p>进制转换</p>
  *
  * @author 刘志强
  * @author yuton 校对
  * @version 1.0
- *  进制转换
  * @since 2017/05/23
  */
 public class DigitalTransUtil {
@@ -424,18 +423,4 @@ public class DigitalTransUtil {
         }
         return sb.toString().toUpperCase().trim();
     }
-
-//    public static void main(String[] args) {
-////        System.out.println(hexStr2Str("57304C305A43463639333130383339314100"));
-////        System.out.println(hexStr2Str("4C414E445530303030303100"));
-////        System.out.println(hexStr2Str("453030302E303030303030"));
-////        System.out.println(hexStr2Str("383100"));
-////        System.out.println(hexChangeDecimalInt("007B"));
-////        System.out.println(hexChangeDecimalInt("AA55"));
-////        System.out.println(hexChangeDecimalInt("1601"));
-////        System.out.println(hexChangeDecimal("0000027E"));
-//        System.out.println(hexChangeDecimal("04"));
-//        System.out.println(hexChangeDecimal("78"));
-//        System.out.println(hexStr2Str("736572766963652E696E636172646174612E636F6D2E636E"));
-//    }
 }
