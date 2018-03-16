@@ -3,6 +3,8 @@ package com.jokers.common.executor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * <p>ExecutorUtil class.</p>
@@ -38,5 +40,13 @@ public class ExecutorUtil {
         threadPoolTaskExecutor.setKeepAliveSeconds(keepAliveSeconds);
         threadPoolTaskExecutor.initialize();
         return threadPoolTaskExecutor;
+    }
+
+    /**
+     * <p>提供一个可缓存的的线程池.</p>
+     * @return a {@link java.util.concurrent.ExecutorService} object.
+     */
+    public static ExecutorService newCachedThreadPool() {
+        return Executors.newCachedThreadPool();
     }
 }
