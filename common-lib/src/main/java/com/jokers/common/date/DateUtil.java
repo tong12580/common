@@ -52,7 +52,7 @@ public class DateUtil {
      * @return yyyy-MM-dd String
      */
     public static String format(Date date) {
-        return DateFormatUtils.format(date, DateFormatUtils.ISO_DATE_FORMAT.getPattern());
+        return DateFormatUtils.format(date, DateFormatUtils.ISO_8601_EXTENDED_DATE_FORMAT.getPattern());
     }
 
     /**
@@ -62,7 +62,7 @@ public class DateUtil {
      * @return HH:mm:ss String
      */
     public static String formatTime(Date date) {
-        return DateFormatUtils.format(date, DateFormatUtils.ISO_TIME_NO_T_FORMAT.getPattern());
+        return DateFormatUtils.format(date, DateFormatUtils.ISO_8601_EXTENDED_TIME_FORMAT.getPattern());
     }
 
     /**

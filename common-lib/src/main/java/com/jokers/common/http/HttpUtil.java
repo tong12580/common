@@ -1,7 +1,6 @@
 package com.jokers.common.http;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.CharEncoding;
 import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -20,6 +19,7 @@ import org.springframework.util.CollectionUtils;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -116,14 +116,14 @@ public class HttpUtil {
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader(ACCEPT, APPLICATION_JSON);
             httpPost.addHeader(AUTHORIZATION, authorization);
-            StringEntity se = new StringEntity(json, Charset.forName(CharEncoding.UTF_8));
+            StringEntity se = new StringEntity(json, StandardCharsets.UTF_8);
             se.setContentType(CONTENT_TYPE_JSON);
-            se.setContentEncoding(CharEncoding.UTF_8);
+            se.setContentEncoding(StandardCharsets.UTF_8.name());
             httpPost.setEntity(se);
             response = httpClient.execute(httpPost);
             HttpEntity entity = response.getEntity();
             if (null != entity) {
-                result = EntityUtils.toString(entity, CharEncoding.UTF_8);
+                result = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             }
 
         } catch (IOException e) {
@@ -137,6 +137,10 @@ public class HttpUtil {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StandardCharsets.UTF_8.name());
     }
 
     /**
@@ -202,12 +206,12 @@ public class HttpUtil {
 
         try {
 
-            httpPost.setEntity(new UrlEncodedFormEntity(pairs, CharEncoding.UTF_8));
+            httpPost.setEntity(new UrlEncodedFormEntity(pairs, StandardCharsets.UTF_8));
             response = httpClient.execute(httpPost);
             HttpEntity entity = response.getEntity();
 
             if (null != entity) {
-                result = EntityUtils.toString(entity, CharEncoding.UTF_8);
+                result = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             }
 
         } catch (IOException e) {
@@ -238,7 +242,7 @@ public class HttpUtil {
         try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
             HttpEntity entity = response.getEntity();
             if (null != entity) {
-                result = EntityUtils.toString(entity, CharEncoding.UTF_8);
+                result = EntityUtils.toString(entity, StandardCharsets.UTF_8);
             }
         } catch (IOException e) {
             log.error(e.getMessage());

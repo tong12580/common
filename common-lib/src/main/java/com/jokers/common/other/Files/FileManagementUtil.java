@@ -1,7 +1,6 @@
 package com.jokers.common.other.Files;
 
 import com.jokers.common.http.HttpUtil;
-import org.apache.commons.lang3.CharEncoding;
 import org.springframework.scheduling.annotation.Async;
 
 import javax.servlet.ServletOutputStream;
@@ -14,6 +13,7 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 
 /**
  * <p>FileManagementUtil class.</p>
@@ -34,7 +34,7 @@ public class FileManagementUtil {
      * @throws java.io.IOException java.io.IOException
      */
     public static void exportFile(HttpServletResponse response, File file) throws IOException {
-        String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
+        String filename = URLEncoder.encode(file.getName(), StandardCharsets.UTF_8.name());
         response.setContentType(HttpUtil.CONTENT_TYPE_APPLICATION_OCTET_STREAM);
         response.setContentLength((int) file.length());
         response.setHeader(HttpUtil.CONTENT_DISPOSITION, "attachment;filename=" + filename);
@@ -59,7 +59,7 @@ public class FileManagementUtil {
      * @throws java.io.IOException java.io.IOException
      */
     public static void exportFileByNIO(HttpServletResponse response, File file) throws IOException {
-        String filename = URLEncoder.encode(file.getName(), CharEncoding.UTF_8);
+        String filename = URLEncoder.encode(file.getName(), StandardCharsets.UTF_8.name());
         response.setContentType(HttpUtil.CONTENT_TYPE_APPLICATION_OCTET_STREAM);
         response.setContentLength((int) file.length());
         response.setHeader(HttpUtil.CONTENT_DISPOSITION, "attachment;filename=" + filename);
