@@ -1,47 +1,36 @@
 package com.jokers.common.netty;
 
-import com.jokers.common.executor.ExecutorUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.MessageToMessageDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 
 /**
- * netty
+ * nettyServer
  * Created by yuTong on 2018/03/16.
  */
 @Slf4j
 public class NettyServer extends Thread {
     private static EventLoopGroup bossGroup = new NioEventLoopGroup();
     private static EventLoopGroup workerGroup = new NioEventLoopGroup();
-    public static ExecutorService executorService = ExecutorUtil.newCachedThreadPool();
+    private static ExecutorService executorService;
 
     private int port;
-    private ChannelHandler channelHandler;
-    private MessageToMessageDecoder decoder;
-    private MessageToMessageDecoder encoder;
 
-    public NettyServer(int port, ChannelHandler channelHandler) {
+    public NettyServer(int port) {
         this.port = port;
-        this.channelHandler = channelHandler;
     }
 
-    public NettyServer(int port, ChannelHandler channelHandler, MessageToMessageDecoder decoder) {
+    public NettyServer(int port, ExecutorService executorService) {
         this.port = port;
-        this.channelHandler = channelHandler;
-        this.decoder = decoder;
-    }
-
-    public NettyServer(int port, ChannelHandler channelHandler, MessageToMessageDecoder decoder, MessageToMessageDecoder encoder) {
-        this.port = port;
-        this.channelHandler = channelHandler;
-        this.decoder = decoder;
-        this.encoder = encoder;
+        NettyServer.executorService = executorService;
     }
 
 
@@ -51,20 +40,7 @@ public class NettyServer extends Thread {
         ServerBootstrap b = new ServerBootstrap();
         b = b.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        if (null != encoder) {
-                            socketChannel.pipeline().addLast(encoder);
-                        }
-                        if (null != decoder) {
-                            socketChannel.pipeline().addLast(decoder);
-                        }
-                        if (null != channelHandler) {
-                            socketChannel.pipeline().addLast(channelHandler);
-                        }
-                    }
-                })
+                .childHandler(new SocketChannelInitializer<SocketChannel>(null, new DemoNettyServerHandler(executorService)))
                 .option(ChannelOption.TCP_NODELAY, true)
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .childOption(ChannelOption.SO_KEEPALIVE, true);
