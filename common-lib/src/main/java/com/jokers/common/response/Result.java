@@ -56,7 +56,7 @@ public class Result<T> implements IResult<T> {
     /** {@inheritDoc} */
     @Override
     public String toJson() throws JsonProcessingException {
-        String result = JsonUtil.objectToJson(this, PATTERN);
+        String result = JsonUtil.toJson(this);
         log.info(result);
         return result;
     }
