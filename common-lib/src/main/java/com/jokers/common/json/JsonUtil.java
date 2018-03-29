@@ -35,6 +35,17 @@ public class JsonUtil {
 
     private volatile static Gson gson;
     private volatile static ObjectMapper objectMapper; //jackson
+    private static final String PATTERN_HAVE_TIME = "yyyy-MM-dd HH:mm:ss";
+    private static ThreadLocal<SimpleDateFormat> LOCAL = new ThreadLocal<>();
+
+    private static SimpleDateFormat getDateFormat() {
+        SimpleDateFormat dateFormat = LOCAL.get();
+        if (null == dateFormat) {
+            dateFormat = new SimpleDateFormat(PATTERN_HAVE_TIME);
+            LOCAL.set(dateFormat);
+        }
+        return dateFormat;
+    }
 
     static {
         if (null == gson) {
@@ -236,5 +247,30 @@ public class JsonUtil {
         DateFormat dateFormat = new SimpleDateFormat(pattern);
         objectMapper.setDateFormat(dateFormat);
         return objectMapper.writeValueAsString(object);
+    }
+
+    /**
+     * object 转化为json jackson2 框架
+     *
+     * @param object {@link java.lang.Object}
+     * @return String
+     */
+    public static String toJson(Object object) throws JsonProcessingException {
+        objectMapper.setDateFormat(getDateFormat());
+        return objectMapper.writeValueAsString(object);
+    }
+
+    /**
+     * json to bean
+     *
+     * @param json   String
+     * @param tClass Class
+     * @param <T>    T
+     * @return T
+     * @throws java.io.IOException java.io.IOException
+     */
+    public static <T> T getBean(String json, Class<T> tClass) throws IOException {
+        objectMapper.setDateFormat(getDateFormat());
+        return objectMapper.readValue(json, tClass);
     }
 }

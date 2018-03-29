@@ -160,19 +160,6 @@ public class CommonTools {
     }
 
     /**
-     * json to bean
-     *
-     * @param json   String
-     * @param tClass Class
-     * @param <T>    T
-     * @return T
-     * @throws java.io.IOException java.io.IOException
-     */
-    public static <T> T getBean(String json, Class<T> tClass) throws IOException {
-        return JsonUtil.jsonToBean(json, tClass, PATTERN_HAVE_TIME);
-    }
-
-    /**
      * <p>获取本机公网ip.</p>
      *
      * @return String
