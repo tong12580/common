@@ -11,7 +11,7 @@
 |:---------- |:---------:|---:|---:|
 | 2017/09/27  | joker      | 1.0 | 是
 | 2018/03/01  | joker      | 1.1 | 是
-| 2018/03/23  | joker      | 1.2 | 否
+| 2018/05/24  | joker      | 1.2 | 是
 
 ----
 
@@ -23,7 +23,7 @@ Apache Maven
 		<dependency>
 			<groupId>io.github.tong12580</groupId>
 			<artifactId>common-lib</artifactId>
-			<version>1.1</version>
+			<version>1.2</version>
 		</dependency>
 
 ```
@@ -31,15 +31,16 @@ Apache Maven
 Gradle/Grails
 
 ```
-compile 'io.github.tong12580:common-lib:1.1'
+compile 'io.github.tong12580:common-lib:1.2'
 
 ```
 
 ## 简介
 
-1.这个一个 基于SpringBoot或者说SpringCloud的一个工具类
+1.这个一个 基于Spring的一个工具类,您可以在您的Spring工程上使用它，它能够为您节省大量的代码。
 
 ### common-lib 可以做什么?
+
 common-lib 是一个基于 Spring 的工具类
 
 #### 1.0，1.1版本 提供如下的工具类服务
@@ -61,17 +62,17 @@ common-lib 是一个基于 Spring 的工具类
 15. 数字,字母,邮箱,手机号,文件后缀,号码隐藏,表情符号过滤替换方法提供
 16. IP,系统可用内存获取
 17. Map和Bean的互相转换
-18. 排序
+18. 基本排序教程
 19. 16进制10进制的位数转换 与字符编码解码方式
 
 #### 1.2版本 提供
 
-20. 线程池
-21. Netty使用
-22. JWT用例
-23. Excel的读写
+20. 线程池快捷创建使用方式
+21. Netty使用和指导用例
+22. JWT的封装与快捷使用方式
+23. Excel的快捷读写方式
 
-#### 后续将提供的工具类服务
+#### 后续将提供的工具类服务（为1.3版本将会提供到的服务）
 
 1. redis
 2. 谷歌Wifi和基站数据解析服务
