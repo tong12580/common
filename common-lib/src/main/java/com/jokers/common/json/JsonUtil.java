@@ -254,6 +254,7 @@ public class JsonUtil {
      *
      * @param object {@link java.lang.Object}
      * @return String
+     * @throws com.fasterxml.jackson.core.JsonProcessingException if any
      */
     public static String toJson(Object object) throws JsonProcessingException {
         objectMapper.setDateFormat(getDateFormat());

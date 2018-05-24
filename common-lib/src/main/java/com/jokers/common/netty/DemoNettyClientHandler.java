@@ -9,8 +9,7 @@ import java.io.InputStreamReader;
 
 /**
  * @author yuton
- * @version 1.0
- * @description
+ * @version 1.2
  * @since 2017/4/25 16:57
  */
 @Slf4j

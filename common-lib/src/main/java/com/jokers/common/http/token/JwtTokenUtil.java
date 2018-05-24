@@ -48,6 +48,9 @@ public class JwtTokenUtil {
 
     /**
      * 从token中解析中用户信息
+     *
+     * @param token 生成token
+     * @return JwtBo
      */
     public static JwtBo getAuthentication(String token) {
 
@@ -63,6 +66,7 @@ public class JwtTokenUtil {
      * 从token中获取用户名
      *
      * @param token String
+     * @return String
      */
     public static String getUsername(String token) {
         DecodedJWT decodedJWT = JWT.decode(token);
@@ -73,6 +77,7 @@ public class JwtTokenUtil {
      * 刷新token
      *
      * @param oldToken 旧token
+     * @return String
      */
     public static String refreshToken(String oldToken, JwtBo jwtBo) {
 
