@@ -16,6 +16,18 @@ public class JwtBo {
     private Date expiresAt;//到期时间
     private Date issuedAt;//签发时间
 
+    public static JwtBo builder(String secret, String issuer) {
+        return new JwtBo(secret, issuer);
+    }
+
+    public JwtBo(String secret, String issuer) {
+        this.secret = secret;
+        this.issuer = issuer;
+    }
+
+    public JwtBo() {
+    }
+
     public Date getIssuedAt() {
         return issuedAt;
     }
