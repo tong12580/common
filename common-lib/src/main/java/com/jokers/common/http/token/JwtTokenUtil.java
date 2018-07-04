@@ -78,6 +78,7 @@ public class JwtTokenUtil {
     /**
      * 刷新token
      *
+     * @param jwtBo JwtBo
      * @param oldToken 旧token
      * @return String
      */
