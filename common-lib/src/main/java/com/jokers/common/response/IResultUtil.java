@@ -9,10 +9,28 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author yutong
  * @version 1.0
- *  返回结果统计调用方法
+ * 返回结果统计调用方法
  * @since 2018/2/19 14:10
  */
 public class IResultUtil {
+
+    /**
+     * 原始提示
+     *
+     * @param code   int
+     * @param msg    String
+     * @param result T
+     * @param <T>    <T>
+     * @return IResult<T>
+     */
+    public static <T> IResult<T> result(int code, String msg, T result) {
+        IResult<T> rs = new Result<>();
+        rs.setCode(code);
+        rs.setMsg(msg);
+        rs.setResult(result);
+        return rs;
+    }
+
     /**
      * 成功提示
      *
@@ -75,7 +93,7 @@ public class IResultUtil {
     public static IResult<String> errorResult(String msg) {
         IResult<String> result = new Result<>();
         result.setCode(ResultMessage.ERROR_PROMPT.getCode());
-        result.setMsg(ResultMessage.ERROR_PROMPT.getMsg().replace("{}", msg));
+        result.setMsg(msg);
         return result;
     }
 
@@ -83,8 +101,8 @@ public class IResultUtil {
      * 错误提示 无返回
      *
      * @param resultMessage ResultMessage
+     * @param <T>           a T object.
      * @return IResult
-     * @param <T> a T object.
      */
     public static <T> IResult<T> errorResult(ResultMessage resultMessage) {
         return new Result<>(resultMessage);
@@ -97,8 +115,8 @@ public class IResultUtil {
      * @param msg  String
      * @return IResult
      */
-    public static IResult<String> errorResult(int code, String msg) {
-        IResult<String> result = new Result<>();
+    public static <T> IResult<T> errorResult(int code, String msg) {
+        IResult<T> result = new Result<>();
         result.setCode(code);
         result.setMsg(msg);
         return result;
@@ -108,11 +126,11 @@ public class IResultUtil {
      * 错误提示
      *
      * @param resultMessage ResultMessage
+     * @param specificMsg   a {@link java.lang.String} object.
      * @return IResult
-     * @param specificMsg a {@link java.lang.String} object.
      */
-    public static IResult<String> errorResult(ResultMessage resultMessage, String specificMsg) {
-        IResult<String> result = new Result<>();
+    public static <T> IResult<T> errorResult(ResultMessage resultMessage, String specificMsg) {
+        IResult<T> result = new Result<>();
         specificMsg = StringUtils.isBlank(specificMsg) ? "" : specificMsg;
         result.setCode(resultMessage.getCode());
         result.setMsg(resultMessage.getMsg().replace("{}", specificMsg));
