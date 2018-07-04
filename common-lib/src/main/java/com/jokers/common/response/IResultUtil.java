@@ -20,8 +20,7 @@ public class IResultUtil {
      * @param code   int
      * @param msg    String
      * @param result T
-     * @param <T>    <T>
-     * @return IResult<T>
+     * @return IResult
      */
     public static <T> IResult<T> result(int code, String msg, T result) {
         IResult<T> rs = new Result<>();
