@@ -38,9 +38,8 @@ public class Base64Util {
      * @param stringValue a {@link java.lang.String} object.
      * @param encoding a {@link java.lang.String} object.
      * @return a {@link java.lang.String} object.
-     * @throws java.io.UnsupportedEncodingException if any.
      */
-    public static String encodeBase64(String stringValue, String encoding) throws UnsupportedEncodingException {
+    public static String encodeBase64(String stringValue, String encoding) {
         if (StringUtils.isEmpty(stringValue)) {
             return null;
         }
