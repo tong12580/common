@@ -13,16 +13,6 @@ import lombok.Getter;
 public enum Constants {
 
     /**
-     *  站点入口
-     */
-    BASE_PATH("https://so360.org/"),
-
-    /**
-     *  网站域名
-     */
-    DOMAIN("so360.org"),
-
-    /**
      *  session key 常量定义
      */
     SESSION_KEY_USER("sessionUser"), // 用户session
@@ -55,15 +45,7 @@ public enum Constants {
      *  固定图片压缩尺寸常量
      */
     SIZE_HEAD_IMG_W(200),
-    SIZE_HEAD_IMG_H(150),
-    WATCH_KEEP("i:k"),
-    WATCH_REDIS_ADDRESS("i:adr"),
-    WATCH_REDIS_ADDRESS_QUEUE("i:Q:"),
-    SECURITY_REDIS_ADDRESS(":adr"),
-    SECURITY_REDIS_ADDRESS_QUEUE(":Q:"),
-    SECURITY_KEEP(":k"),
-    SMART_STICK_REDIS_ADDRESS("hot:"),
-    MOBILE("mobile");
+    SIZE_HEAD_IMG_H(150),;
 
     @Getter
     private String constants;
