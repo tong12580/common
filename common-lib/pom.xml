@@ -46,6 +46,7 @@
         <jsch.version>0.1.54</jsch.version>
         <lombok.version>1.16.20</lombok.version>
         <jackson-databind.version>2.9.4</jackson-databind.version>
+        <validation>2.0.1.Final</validation>
     </properties>
     <licenses>
         <license>
@@ -224,6 +225,12 @@
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation}</version>
+        </dependency>
+
 
     </dependencies>
 
