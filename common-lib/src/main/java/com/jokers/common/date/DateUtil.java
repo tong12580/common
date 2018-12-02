@@ -37,7 +37,11 @@ public class DateUtil {
      * @return boolean
      */
     public static boolean isDate(String date) {
-        FastDateFormat format = FastDateFormat.getInstance(PATTERN_HAVE_TIME);
+        return isDate(date, PATTERN_HAVE_TIME);
+    }
+
+    public static boolean isDate(String date, String pattern) {
+        FastDateFormat format = FastDateFormat.getInstance(pattern);
         try {
             return format.format(format.parse(date)).equals(date);
         } catch (ParseException e) {
