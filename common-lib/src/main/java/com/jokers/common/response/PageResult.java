@@ -1,9 +1,10 @@
 package com.jokers.common.response;
 
 /**
+ * 分页
+ *
  * @author yuton
  * @version 1.0
- * @description 分页
  * @since 2018/7/9 23:41
  */
 public class PageResult<T> extends Result<T> implements IPageResult<T> {

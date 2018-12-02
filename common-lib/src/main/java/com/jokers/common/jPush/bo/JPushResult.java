@@ -1,9 +1,9 @@
 package com.jokers.common.jPush.bo;
 
 /**
+ * com.business.jPush.bo
  * @author yuton
  * @version 1.0
- * @description com.business.jPush.bo
  * @since 上午11:34 2017/11/10
  */
 public class JPushResult {

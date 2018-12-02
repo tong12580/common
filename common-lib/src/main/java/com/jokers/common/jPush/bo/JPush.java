@@ -2,9 +2,11 @@ package com.jokers.common.jPush.bo;
 
 
 /**
+ * 极光推送实体类
+ * com.business.jPush.
+ *
  * @author yuton
  * @version 1.0
- * @description com.business.jPush.
  * @since 上午10:32 2017/11/10
  */
 public class JPush {
