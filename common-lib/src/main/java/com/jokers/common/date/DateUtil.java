@@ -40,6 +40,13 @@ public class DateUtil {
         return isDate(date, PATTERN_HAVE_TIME);
     }
 
+    /**
+     * 判断是否为正确日期
+     *
+     * @param date 格式为：yyyy-MM-dd HH:mm:ss String
+     * @param pattern 自定义校验日期类型格式
+     * @return boolean
+     */
     public static boolean isDate(String date, String pattern) {
         FastDateFormat format = FastDateFormat.getInstance(pattern);
         try {
