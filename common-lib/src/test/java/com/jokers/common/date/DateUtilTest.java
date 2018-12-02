@@ -14,6 +14,6 @@ class DateUtilTest {
 
     @Test
     void isDate() {
-        System.out.println(DateUtil.isDate("2018-11-15", "yyyy-MM-dd"));
+        System.out.println(DateUtil.isDate("2018-02-29", "yyyy-MM-dd"));
     }
 }
