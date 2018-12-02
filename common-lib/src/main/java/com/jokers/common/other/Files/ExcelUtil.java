@@ -1,6 +1,8 @@
 package com.jokers.common.other.Files;
 
 import com.google.common.collect.Lists;
+import com.jokers.common.http.HttpUtil;
+import com.jokers.pojo.enums.FileFormatEnum;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -12,9 +14,12 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -26,6 +31,8 @@ import java.util.List;
  */
 @Slf4j
 public class ExcelUtil {
+
+    private static final String CONTENT_DISPOSITION_VALUE = "attachment;filename=";
 
     /**
      * 生成excel文件(文件标题栏与文件内容一定要对应)
@@ -52,30 +59,14 @@ public class ExcelUtil {
         }
         // 开始写入内容
         for (int row = 0; row < lists.size(); row++) {
-            // 获取一条(一行)记录
-//	             List list = (List) lists.get(row);
-            // 数据是文本时(用label写入到工作表中)
-//	             for (int col=0; col<list.size(); col++) {                
-            String listvalue = (String) lists.get(row).toString();
-            Label label = null;
+            String listvalue = lists.get(row).toString();
+            Label label;
             int j = 1;
             if (row > title.length)
                 j++;
             label = new Label(row, j, listvalue);
             sheet.addCell(label);
-//	             }
         }
-	     /*
-	        生成一个保存数字的单元格,必须使用Number的完整包路径,否则有语法歧义,值为789.123
-	    jxl.write.Number number = new jxl.write.Number(col, row, 555.12541);
-	    sheet.addCell(number);
-	  */
-	        /*
-	                           生成一个保存日期的单元格,必须使用DateTime的完整包路径,否则有语法歧义,值为new Date()
-	          jxl.write.DateTime date = new jxl.write.DateTime(col, row, new java.util.Date());
-	          sheet.addCell(date);
-	         */
-        // 写入数据
         wwb.write();
         wwb.close();
         os.close();
@@ -109,4 +100,20 @@ public class ExcelUtil {
         return contents;
     }
 
+    /**
+     * 导出并下载Excel文件
+     *
+     * @param response       http返回
+     * @param fileFormatEnum 文件枚举类型
+     * @param msg            文件信息
+     */
+    public static void writeExcel(HttpServletResponse response, String msg, FileFormatEnum fileFormatEnum) throws IOException {
+        final String fileName = System.currentTimeMillis() + (null == fileFormatEnum ? FileFormatEnum.EXCEL.getName() : fileFormatEnum.getName());
+        response.setContentType(HttpUtil.CONTENT_TYPE_APPLICATION_OCTET_STREAM);
+        response.setHeader(HttpUtil.CONTENT_DISPOSITION, CONTENT_DISPOSITION_VALUE);
+        response.setHeader(HttpUtil.LOCATION, fileName);
+        ServletOutputStream op = response.getOutputStream();
+        op.write(new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF});
+        op.write(msg.getBytes(Charset.forName("UTF-8")));
+    }
 }
