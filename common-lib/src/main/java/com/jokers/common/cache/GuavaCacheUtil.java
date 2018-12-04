@@ -1,6 +1,6 @@
 package com.jokers.common.cache;
 
-import com.jokers.common.json.JsonUtil;
+import com.alibaba.fastjson.JSON;
 import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
@@ -70,7 +70,7 @@ public class GuavaCacheUtil implements Cache {
     public ValueWrapper get(Object key) {
         key = getKey(key.toString());
         Object value = this.cache.getIfPresent(key);
-        log.debug("getKey = {}, getObject = {}", key, JsonUtil.objectToJson(value));
+        log.debug("getKey = {}, getObject = {}", key, JSON.toJSON(value));
         return toWrapper(value);
     }
 
@@ -79,7 +79,7 @@ public class GuavaCacheUtil implements Cache {
     public <T> T get(Object key, Class<T> aClass) {
         key = getKey(key.toString());
         T value = fromStoreValue(this.cache.getIfPresent(key), aClass);
-        log.debug("getKey = {}, getObject = {}", key, JsonUtil.objectToJson(value));
+        log.debug("getKey = {}, getObject = {}", key, JSON.toJSON(value));
         return value;
     }
 
@@ -94,7 +94,7 @@ public class GuavaCacheUtil implements Cache {
     public void put(Object key, Object value) {
         key = getKey(key.toString());
         this.cache.put(key, toStoreValue(value));
-        log.debug("getKey = {}, getObject = {}", key, JsonUtil.objectToJson(value));
+        log.debug("getKey = {}, getObject = {}", key, JSON.toJSON(value));
     }
 
     /** {@inheritDoc} */

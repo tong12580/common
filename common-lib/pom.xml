@@ -47,6 +47,7 @@
         <lombok.version>1.16.20</lombok.version>
         <jackson-databind.version>2.9.7</jackson-databind.version>
         <validation>2.0.1.Final</validation>
+        <fastJson>1.2.54</fastJson>
     </properties>
     <licenses>
         <license>
@@ -124,6 +125,12 @@
     </developers>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastJson}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

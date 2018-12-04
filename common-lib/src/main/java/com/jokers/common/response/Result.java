@@ -1,8 +1,7 @@
 package com.jokers.common.response;
 
-import com.jokers.common.json.JsonUtil;
+import com.alibaba.fastjson.JSON;
 import com.jokers.common.message.ResultMessage;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -55,8 +54,8 @@ public class Result<T> implements IResult<T> {
 
     /** {@inheritDoc} */
     @Override
-    public String toJson() throws JsonProcessingException {
-        String result = JsonUtil.toJson(this);
+    public String toJson() {
+        String result = JSON.toJSONStringWithDateFormat(this, PATTERN);
         log.info(result);
         return result;
     }
