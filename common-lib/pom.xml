@@ -48,6 +48,7 @@
         <jackson-databind.version>2.9.7</jackson-databind.version>
         <validation>2.0.1.Final</validation>
         <fastJson>1.2.54</fastJson>
+        <protostuff>1.6.0</protostuff>
     </properties>
     <licenses>
         <license>
@@ -125,6 +126,18 @@
     </developers>
 
     <dependencies>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
