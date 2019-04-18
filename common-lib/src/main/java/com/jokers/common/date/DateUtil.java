@@ -1,16 +1,15 @@
 package com.jokers.common.date;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 
 import java.text.ParseException;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -43,7 +42,7 @@ public class DateUtil {
     /**
      * 判断是否为正确日期
      *
-     * @param date 格式为：yyyy-MM-dd HH:mm:ss String
+     * @param date    格式为：yyyy-MM-dd HH:mm:ss String
      * @param pattern 自定义校验日期类型格式
      * @return boolean
      */
@@ -365,6 +364,25 @@ public class DateUtil {
             age = month + MONTH;
         }
         return age;
+    }
+
+    /**
+     * 计算年龄
+     *
+     * @param birthday Date 出生日期
+     * @param pattern  格式化参数
+     * @return int 年龄
+     */
+    public static long getAgeByBirthday(String birthday, String pattern) {
+        if (StringUtils.isBlank(birthday)) {
+            return 0;
+        }
+        LocalDate today = LocalDate.now();
+        if (StringUtils.isBlank(pattern)) {
+            pattern = PATTERN_HAVE_TIME;
+        }
+        LocalDate playerDate = LocalDate.from(DateTimeFormatter.ofPattern(pattern).parse(birthday));
+        return ChronoUnit.YEARS.between(playerDate, today);
     }
 
     /**

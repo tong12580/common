@@ -1,6 +1,7 @@
 package com.jokers.common.http;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -18,7 +19,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,6 @@ import java.util.Objects;
 
 
 /**
- *
  * HTTP请求公共类
  *
  * @author yuTong
@@ -36,13 +35,21 @@ import java.util.Objects;
  */
 @Slf4j
 public class HttpUtil {
-    /** Constant <code>SELECT_PUBLIC_IP_ADDRESS="http://www.ip138.com/ip2city.asp"</code> */
+    /**
+     * Constant <code>SELECT_PUBLIC_IP_ADDRESS="http://www.ip138.com/ip2city.asp"</code>
+     */
     public static final String SELECT_PUBLIC_IP_ADDRESS = "http://www.ip138.com/ip2city.asp";
-    /** Constant <code>CONTENT_TYPE_APPLICATION_OCTET_STREAM="application/octet-stream"</code> */
+    /**
+     * Constant <code>CONTENT_TYPE_APPLICATION_OCTET_STREAM="application/octet-stream"</code>
+     */
     public static final String CONTENT_TYPE_APPLICATION_OCTET_STREAM = "application/octet-stream";
-    /** Constant <code>LOCATION="Location"</code> */
+    /**
+     * Constant <code>LOCATION="Location"</code>
+     */
     public static final String LOCATION = "Location";
-    /** Constant <code>CONTENT_DISPOSITION="Content-Disposition"</code> */
+    /**
+     * Constant <code>CONTENT_DISPOSITION="Content-Disposition"</code>
+     */
     public static final String CONTENT_DISPOSITION = "Content-Disposition";
     private static final String APPLICATION_JSON = "application/json";
     private static final String CONTENT_TYPE_TEXT_JSON = "text/json";
@@ -116,10 +123,12 @@ public class HttpUtil {
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader(ACCEPT, APPLICATION_JSON);
             httpPost.addHeader(AUTHORIZATION, authorization);
-            StringEntity se = new StringEntity(json, StandardCharsets.UTF_8);
-            se.setContentType(CONTENT_TYPE_JSON);
-            se.setContentEncoding(StandardCharsets.UTF_8.name());
-            httpPost.setEntity(se);
+            if (StringUtils.isNotBlank(json)) {
+                StringEntity se = new StringEntity(json, StandardCharsets.UTF_8);
+                se.setContentType(CONTENT_TYPE_JSON);
+                se.setContentEncoding(StandardCharsets.UTF_8.name());
+                httpPost.setEntity(se);
+            }
             response = httpClient.execute(httpPost);
             HttpEntity entity = response.getEntity();
             if (null != entity) {
@@ -247,10 +256,9 @@ public class HttpUtil {
     }
 
     /**
-     *
      * httpGet
      *
-     * @param url String
+     * @param url    String
      * @param params Map
      * @return String
      */
