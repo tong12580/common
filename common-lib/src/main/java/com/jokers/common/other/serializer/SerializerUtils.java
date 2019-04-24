@@ -1,11 +1,12 @@
 package com.jokers.common.other.serializer;
 
+import com.alibaba.fastjson.JSON;
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtobufIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 
-import java.io.Serializable;
+import java.lang.reflect.Type;
 
 /**
  * <p>SerializerUtils</p>
@@ -53,7 +54,7 @@ public class SerializerUtils {
             buffer = LinkedBuffer.allocate();
             BUFFERS.set(buffer);
         }
-        SerializeDeserializeWrapper<T> wrapper = SerializeDeserializeWrapper.builder(t);
+        SerializeDeserializeWrapper wrapper = SerializeDeserializeWrapper.builder(t);
         byte[] bytes = ProtobufIOUtil.toByteArray(wrapper, WRAPPER_SCHEMA, buffer);
         buffer.clear();
         return bytes;
@@ -75,39 +76,32 @@ public class SerializerUtils {
     }
 
     /**
-     * 复杂对象的反序列化
+     * 对象的反序列化
      *
      * @param bytes 字节码
      * @param <T>   泛型
      * @return 对象
      */
-    public static <T> T deserializerByProto(byte[] bytes) {
-        SerializeDeserializeWrapper<T> wrapper = new SerializeDeserializeWrapper<>();
+    public static <T> T deserializerByProto(byte[] bytes, Type type) {
+        SerializeDeserializeWrapper wrapper = new SerializeDeserializeWrapper();
         ProtobufIOUtil.mergeFrom(bytes, wrapper, WRAPPER_SCHEMA);
-        return wrapper.getData();
+        return JSON.parseObject(wrapper.getData(), type);
     }
 
     /**
      * 封装参数
-     *
-     * @param <T> 泛型指示
      */
-    static class SerializeDeserializeWrapper<T> implements Serializable {
-        private T data;
+    static class SerializeDeserializeWrapper {
+        private byte[] data;
 
-        T getData() {
+        public byte[] getData() {
             return data;
         }
 
-        void setData(T data) {
-            this.data = data;
-        }
-
-        static <T> SerializeDeserializeWrapper<T> builder(T t) {
-            SerializeDeserializeWrapper<T> wrapper = new SerializeDeserializeWrapper<>();
-            wrapper.setData(t);
+        static <T> SerializeDeserializeWrapper builder(T t) {
+            SerializeDeserializeWrapper wrapper = new SerializeDeserializeWrapper();
+            wrapper.data = JSON.toJSONBytes(t);
             return wrapper;
         }
     }
-
 }
