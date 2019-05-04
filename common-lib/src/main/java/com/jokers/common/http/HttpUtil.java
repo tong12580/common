@@ -163,8 +163,10 @@ public class HttpUtil {
         httpClient = HttpsClientPoolThread.builder().createSSLClientDefault();
         HttpPost httpPost = new HttpPost(url);
         headers.forEach(httpPost::addHeader);
-        StringEntity se = new StringEntity(json, Consts.UTF_8);
-        httpPost.setEntity(se);
+        if (StringUtils.isNotBlank(json)) {
+            StringEntity se = new StringEntity(json, Consts.UTF_8);
+            httpPost.setEntity(se);
+        }
         try {
             response = httpClient.execute(httpPost);
             HttpEntity entity = response.getEntity();
