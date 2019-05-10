@@ -14,6 +14,7 @@
 | 2018/05/24  | joker      | 1.2 | 是
 | 2018/07/05  | joker      | 1.3.1 | 是
 | 2018/07/05  | joker      | 1.3.2 | 是
+| 2019/05/04  | joker      | 1.3.3 | 是
 
 ----
 
@@ -25,7 +26,7 @@ Apache Maven
 		<dependency>
 			<groupId>io.github.tong12580</groupId>
 			<artifactId>common-lib</artifactId>
-			<version>1.3.2</version>
+			<version>1.3.3</version>
 		</dependency>
 
 ```
@@ -33,7 +34,7 @@ Apache Maven
 Gradle/Grails
 
 ```
-compile 'io.github.tong12580:common-lib:1.3.2'
+compile 'io.github.tong12580:common-lib:1.3.3'
 
 ```
 
