@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
  * @version 1.0
  * @since 2019/5/10 21:30
  */
-public class BeanUtil<T> {
+public class BeanUtil {
 
 
     /**
@@ -22,7 +22,7 @@ public class BeanUtil<T> {
      * @param newBean 新对象
      * @return T
      */
-    public T copyProperties(T oldBean, T newBean) {
+    public static <T> T copyProperties(T oldBean, T newBean) {
         Field[] fields = oldBean.getClass().getDeclaredFields();
         try {
             for (Field field : fields) {
