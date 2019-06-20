@@ -23,6 +23,8 @@ import java.util.Map;
 @Slf4j
 public class CommonTools {
     private static final String PATTERN_HAVE_TIME = "yyyy-MM-dd HH:mm:ss";
+    private static final int ELEVEN = 11;
+    private static final int EIGHT = 8;
 
     /**
      * 遍历Map并除去空值
@@ -110,7 +112,7 @@ public class CommonTools {
      * @return boolean
      */
     public static boolean isPhone(String phone) {
-        return StringUtils.isNotBlank(phone) && phone.matches("^[1][3,4,5,7,8][0-9]{9}$");
+        return StringUtils.isNotBlank(phone) && phone.matches("^[1][1-9][0-9]{9}$");
     }
 
     /**
@@ -199,5 +201,45 @@ public class CommonTools {
      */
     public static String replaceEmoji(String str) {
         return str.replaceAll("[\\ud800\\udc00-\\udbff\\udfff\\ud800-\\udfff]", "*");
+    }
+
+    /**
+     * <p>手机号码前三后四脱敏</p>
+     *
+     * @param mobile String
+     * @return String
+     */
+    public static String mobileEncrypt(String mobile) {
+        if (StringUtils.isEmpty(mobile) || (mobile.length() != ELEVEN)) {
+            return mobile;
+        }
+        return mobile.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+    }
+
+    /**
+     * <p>身份证前三后四脱敏</p>
+     *
+     * @param id String
+     * @return String
+     */
+    public static String idEncrypt(String id) {
+        if (StringUtils.isEmpty(id) || (id.length() < EIGHT)) {
+            return id;
+        }
+        return id.replaceAll("(?<=\\w{3})\\w(?=\\w{4})", "*");
+    }
+
+    /**
+     * <p>护照前2后3位脱敏，护照一般为8或9位</p>
+     *
+     * @param id String
+     * @return String
+     */
+    public static String idPassport(String id) {
+        if (StringUtils.isEmpty(id) || (id.length() < EIGHT)) {
+            return id;
+        }
+        return id.substring(0, 2) + new String(new char[id.length() - 5])
+                .replace("\0", "*").contains(id.substring(id.length() - 3));
     }
 }
