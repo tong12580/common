@@ -112,7 +112,7 @@ public class CommonTools {
      * @return boolean
      */
     public static boolean isPhone(String phone) {
-        return StringUtils.isNotBlank(phone) && phone.matches("^[1][3,4,5,7,8][0-9]{9}$");
+        return StringUtils.isNotBlank(phone) && phone.matches("^[1][1-9][0-9]{9}$");
     }
 
     /**
