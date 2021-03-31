@@ -38,7 +38,7 @@
         <sfl4j.version>1.7.24</sfl4j.version>
         <netty.version>4.1.22.Final</netty.version>
         <jwt.version>3.3.0</jwt.version>
-        <guava.version>24.0-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <lang3.version>3.7</lang3.version>
         <httpclient.version>4.5.5</httpclient.version>
         <servlet.version>4.0.0</servlet.version>
