@@ -47,7 +47,7 @@
         <lombok.version>1.16.20</lombok.version>
         <jackson-databind.version>2.9.9</jackson-databind.version>
         <validation>2.0.1.Final</validation>
-        <fastJson>1.2.54</fastJson>
+        <fastJson>1.2.83</fastJson>
         <protostuff>1.6.0</protostuff>
     </properties>
     <licenses>
